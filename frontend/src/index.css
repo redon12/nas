@@ -1,0 +1,105 @@
+
+.carousel .carousel-item {
+  height: 500px;
+}
+.carousel-item img {
+  position: absolute;
+  object-fit: cover;
+  top:0;
+  left: 0;
+  min-height: 400px;
+}
+.scrollIt {
+  overflow:scroll;
+  height: 300px;
+  cursor:pointer;
+}
+.jade:hover{
+  box-shadow: 2px 2px 2px rgb(194, 188, 188);
+}
+
+.hundred {
+  height: 100%;
+}
+
+
+
+.side-bar a {
+  text-decoration: none;
+  display: block;
+}
+/* .carousel-inner{ 
+  height: 500px;
+} */
+/* .bg-light{
+  border: 1px solid black;
+  width: 150px;
+  /* height: 40p */
+  /* margin-left: 100px;
+  padding-left: 30px;
+} */
+/* .bg-info{
+  border: 1px solid black;
+  width: 200px;
+  margin-left: 100px;
+  padding-left: 18px;
+} */ 
+.side-bar {
+  position:fixed;
+  transition: all 0.5s;
+  transform: translateY(-800px);
+  width:300px;
+  background-color: #b61616;
+  height: 100%;
+  z-index: 2;
+}
+.side-bar.open {
+  transform: translateX(0px);
+  transition: all 0.5s;
+}
+
+.side-close-button {
+  
+  border-radius: 50%;
+  cursor: pointer;
+  width:30px;
+  height: 30px;
+  padding:.2rem;
+  font-size: 1.2;
+  
+  position: absolute;
+  left:250px;
+  top:1.5rem;
+  }
+  .side-open-button {
+    position: fixed;
+    z-index: 1;
+    top:200px;
+    animation:crescendo 2s linear infinite;
+    border-radius: 100%;
+    
+  }
+  .side-open-button1 {
+    position: fixed;
+    z-index: 2;
+    top:200px;
+    border-radius: 100%;
+    cursor: pointer;
+    
+  }
+  .pointit {
+    cursor: pointer;
+  }
+  @keyframes crescendo {
+    0% {transform:scale(.8);
+      opacity: 1;}
+    
+    100% {transform:scale(1.5);
+          opacity: 0;}
+    100% {opacity: 0;}
+  }
+  .blog-image {
+    width:500px;
+    height: 200px;
+    padding:4px;
+  }
