@@ -14,6 +14,7 @@ function Ipage(props){
     const submitHandler=(e)=>{
         e.preventDefault()
         dispatch(loggeddIn(email, password))
+        props.history.push("/signin")
     }
    
 

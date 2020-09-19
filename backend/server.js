@@ -3,7 +3,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import router from './routes/UserRoutes';
 import bodyParser from 'body-parser';
-let server = express();
+let server = express(); 
 const MONGO_URL = "mongodb://localhost/healthy";
 try {
    const database = mongoose.connect(MONGO_URL, {

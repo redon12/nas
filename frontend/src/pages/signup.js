@@ -14,6 +14,7 @@ const SignUpPage=(props)=>{
     const submitHandler = (e)=>{
       e.preventDefault()
       dispatch(registerAction({lname:lname,email:email,fname:fname, pwd:Password, phone:phone}))
+      props.history.push("/signin")
       
     }
     return (

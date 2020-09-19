@@ -30,7 +30,7 @@ const AdminPanel = (props)=>{
                         <span className={"display-4 m-3 text-info  border-bottom-1"}>Admin Panel</span>
                         
                     </div>
-                    <div className={"card col-lg-3 m-1 pointit"}>
+                    <div onClick={e=>props.history.push("/seeallusers")} className={"card col-lg-3 m-1 pointit"}>
                         <div className={"card-body"}>
                             <p className={'text-center h4 text-info m-2'}>
                             <span className={"fas fa-hospital-alt m-1"}>  </span>See All Users
@@ -38,7 +38,7 @@ const AdminPanel = (props)=>{
                         </div>
 
                     </div>
-                    <div className={"card col-lg-3 m-1 pointit"}>
+                    <div onClick={e=>props.history.push('seeallmessages')} className={"card col-lg-3 m-1 pointit"}>
                         <div className={"card-body"}>
                             <p className={'text-center text-info h4'}>
                             <span className={"fas fa-microscope m-1"}></span> Message Log

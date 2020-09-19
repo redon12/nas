@@ -18,6 +18,10 @@ import AdminPanel from './pages/adminPanel';
 import LabTestBookPage from './pages/user_panel_page/LabTestBookPage';
 import HospitalAppointmentPage from './pages/user_panel_page/appointmentPage';
 import HospitalPanel from './pages/Hospital_Panel';
+import seeAllmessages from './pages/adminPages/seeAllmessages';
+import seeAllUsers from './pages/adminPages/seeAllUsers';
+import AllAppointments from './pages/HospitalPages/seeAllAppointments';
+import SeeDocuments from './pages/HospitalPages/seeDocuments';
 
 
 
@@ -125,11 +129,14 @@ const App = ()=>{
     <Route path={"/hospital"}   component={HospitalPanel}/>
     <Route path={"/labbook"}   component={LabTestBookPage}/>
     <Route path={"/hospitalappointment"}   component={HospitalAppointmentPage}/>
-        
-       
-         
+    <Route path={"/seeallmessages"}   component={seeAllmessages}/>
+    <Route path={"/seeallusers"}   component={seeAllUsers}/>
+    <Route path={"/scheduledappointments"}   component={seeAllUsers}/>
+    <Route path={"/requestedappointments"}   component={seeAllUsers}/>
+    <Route path={"/allappointments"}   component={AllAppointments}/>
+    <Route path={"/uploaddignosis"}   component={seeAllUsers}/>
+    <Route path={"/seealldocuments"}   component={SeeDocuments}/>
 
-      
     
     <footer className={"footer text-center display-5 my-5"}>Copyright&copy; 2020 Healtherman PLC</footer>
     </div>
