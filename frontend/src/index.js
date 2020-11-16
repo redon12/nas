@@ -12,7 +12,7 @@ import thunk from 'redux-thunk'
 
 const userInfo = Cookie.getJSON("userInfo") || null
 console.log(userInfo)
-const InnitialState = {sign:{},loggedIn:{userInfo}}
+const InnitialState = {sign:{},loggedIn:{userInfo},loggeddOut:false}
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(allReducer, InnitialState, composeEnhancer(applyMiddleware(thunk)))
 

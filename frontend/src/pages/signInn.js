@@ -7,37 +7,43 @@ import { loggeddIn } from '../actions/signedInAction';
 function Ipage(props){
     const dispatch = useDispatch()
     const loggedIn = useSelector(state=>state.loggedIn)
-    const {loading,userInfo, error} = loggedIn
+    const {loading, userInfo, error} = loggedIn
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
-    
+    const selected = true
+    if (userInfo){
+      console.log("i entered here")
+      props.history.push("/userpanel")}
     const submitHandler=(e)=>{
         e.preventDefault()
         dispatch(loggeddIn(email, password))
-        props.history.push("/signin")
+       
     }
    
 
     useEffect(()=>{
         if (userInfo){
-            props.history.push('/userpanel')
+            // props.history.push('/userpanel')
             console.log(userInfo)
         }
         return ()=>{
 
         }
     }, [userInfo])
-    return <div>
-        
-        {loading?<h1>loading...</h1>:null}
-        {error?<ul>{error.map(wg=>{
-          return <l1>{wg}</l1>
-        })}</ul>:null}
+    return(userInfo?<div>{props.history.push("/userpanel")}</div>: <div>
+       
     
       <div className={"container"}>
         <div className={"row justify-content-center"}>
-          <div className={"col-lg-4 col-sm-12 border m-5 shadow rounded p-3"}>
-          <center> <h1 className={'text-muted m-2'}> Sign In!</h1></center>
+        {loading?<div className={"posit loading-container"}><div className={"loading"}/></div>:
+
+          <div className={"col-lg-4 col-sm-12 col-md-12 border m-5 shadow rounded p-3"}>
+          <center> <h1 className={'text-muted m-2'}> Sign In!</h1>
+           
+        {loading?<div className={"loading-container"}><div className={"loading"}/></div>:null}
+        {error?<p className={"alert alert-danger"}>{error}</p>:null}
+        {console.log(error)}</center>
+
             <form onSubmit={submitHandler}>
             <fieldset className={"form-group"}>
               <input onChange={(e)=>setEmail(e.target.value)} type={"email"} id={"email"} name={"email"} className={"form-control"} placeholder={"Email"}/>
@@ -45,6 +51,8 @@ function Ipage(props){
                 Type in your Email
               </small>
             </fieldset>
+            
+            {/* <div className={"beeper-container"}><div className={"beeper"}></div><div className={"fab fa-firefox h3 messenger"}></div></div> */}
 
             <fieldset className={"form-group"}>
               <input onChange={(e)=>setPassword(e.target.value)} type={"password"} name={"pwd"} id={"pwd"} className={"form-control"} placeholder={"Password"}/>
@@ -52,14 +60,16 @@ function Ipage(props){
                 Type in your Password
               </small>
             </fieldset>
-            <center> <button type = {"submit"} className={"btn btn-info m-4"}>Log In</button></center><Link to={'/'}>create
-            Account</Link>
+            <center> <button type = {"submit"} className={"btn btn-info m-4"}>Log In</button></center> Don't have an account? <Link to={'/register'}>Register</Link>
             </form>
           </div>
+}
         </div>
+  
       </div>
-    </div>
+    </div>)
         
     }
+    
 
 export default Ipage;

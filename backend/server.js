@@ -3,8 +3,14 @@ import express from 'express';
 import mongoose from 'mongoose';
 import router from './routes/UserRoutes';
 import bodyParser from 'body-parser';
-let server = express(); 
-const MONGO_URL = "mongodb://localhost/healthy";
+import dotenv from 'dotenv'
+
+
+// require("dotenv").config()
+let server = express();
+ 
+const MONGO_URL = "mongodb://localhost/healthy";//const MONGO_URL = process.env.MONGO_URL;
+console.log(MONGO_URL)
 try {
    const database = mongoose.connect(MONGO_URL, {
         useNewUrlParser:true,
@@ -19,6 +25,7 @@ try {
 
 server.use(bodyParser.json())
 server.use("/users", router)
+server.use(express.static(__dirname+"/public"))
 server.post("/api/products", (req, res)=> {
     res.send("wonderfully made")
     res.send(data.products);
@@ -40,6 +47,6 @@ server.get("/api/products/:id", (req, res)=> {
     }
 });
 
-server.listen("5000", ()=>{
+server.listen(process.env.PORT||"5001", ()=>{
     console.log("server connected successfully");
 })

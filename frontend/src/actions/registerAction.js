@@ -8,12 +8,12 @@ export const registerAction = (regInfo)=> async(dispatch) =>{
             fname:regInfo.fname,
             lname:regInfo.lname,
             email:regInfo.email,
-            phone:regInfo.phone,
-            pwd:regInfo.pwd
+            pwd:regInfo.pwd,
+            repwd:regInfo.repwd
             
         })
         dispatch({type:REGISTER_SUCCESS, payload:data})
     }catch(error){
-        dispatch({type:REGISTER_FAIL, payload:"registration Failed"})
+        dispatch({type:REGISTER_FAIL, payload:error.response.data.message})
     }
 }

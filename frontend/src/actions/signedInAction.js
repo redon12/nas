@@ -10,6 +10,8 @@ export const loggeddIn = (email, pwd) => async (dispatch)=>{
     
     Cookie.set("userInfo", JSON.stringify(data))
     }catch(error){
-    dispatch({type:LOGIN_FAIL, payload:{err:error.message}})
+        console.log(JSON.stringify(error.response.data))
+    dispatch({type:LOGIN_FAIL, payload:error.response.data.message})
+    
     }
 }

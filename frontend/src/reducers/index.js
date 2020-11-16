@@ -1,13 +1,14 @@
 import {CombineReduccers} from 'react-redux';
 import { combineReducers } from 'redux';
-import { signReducer, loggedReducer, loggedOutReducer, registerReducer } from './signReducer';
+import { loggedInReducer, loggedOutReducer, registerLabReducer, registerReducer } from './signReducer';
 
 
 const allReducer = combineReducers({
-    sign : signReducer,
-    loggedIn:loggedReducer,
+    
+    loggedIn:loggedInReducer,
     loggeddOut: loggedOutReducer,
-    register:registerReducer
+    register:registerReducer,
+    
 })
 
 export default allReducer;

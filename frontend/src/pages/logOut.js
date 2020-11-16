@@ -12,7 +12,7 @@ function LogOut(props){
             }
         },[dispatch(logOutAction)])
 
-        return isLoggedOut?<h1>{props.history.push('/')}</h1>:null
+        return isLoggedOut?<h1><div className={"spinner-container"}><div className={"spinner"}></div></div>{props.history.push('/')}</h1>:null
 }
 
 
