@@ -3,13 +3,15 @@ import express from 'express';
 import mongoose from 'mongoose';
 import router from './routes/UserRoutes';
 import bodyParser from 'body-parser';
-import dotenv from 'dotenv'
-
-
+// import dotenv from 'dotenv'
+import cors from 'cors'
+// require("dotenv").config()
+require("dotenv").config()
 // require("dotenv").config()
 let server = express();
- 
-const MONGO_URL = "mongodb://localhost/healthy";//const MONGO_URL = process.env.MONGO_URL;
+// "mongodb://localhost:27017/nas"
+// "mongodb+srv://virae:C@list5r@nhublogger.xme4w.mongodb.net/nas"
+const MONGO_URL = "mongodb+srv://virae:C@list5r@nhublogger.xme4w.mongodb.net/nas";//const MONGO_URL = process.env.MONGO_URL;
 console.log(MONGO_URL)
 try {
    const database = mongoose.connect(MONGO_URL, {
@@ -25,6 +27,7 @@ try {
 
 server.use(bodyParser.json())
 server.use("/users", router)
+// server.use(cors())
 server.use(express.static(__dirname+"/public"))
 server.post("/api/products", (req, res)=> {
     res.send("wonderfully made")

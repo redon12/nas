@@ -42,6 +42,7 @@ function Ipage(props){
            
         {loading?<div className={"loading-container"}><div className={"loading"}/></div>:null}
         {error?<p className={"alert alert-danger"}>{error}</p>:null}
+        {props.location.state?<p className={"alert alert-info"}>{props.location.state.detail}</p>:null}
         {console.log(error)}</center>
 
             <form onSubmit={submitHandler}>
@@ -60,6 +61,8 @@ function Ipage(props){
                 Type in your Password
               </small>
             </fieldset>
+            <Link className={"d-block"} to={'/forgottenpassword'}>Forgotten Password</Link>
+
             <center> <button type = {"submit"} className={"btn btn-info m-4"}>Log In</button></center> Don't have an account? <Link to={'/register'}>Register</Link>
             </form>
           </div>
