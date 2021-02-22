@@ -6,10 +6,9 @@
   "scripts": {
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build ./src -s",
-    "builds":"npm run clean && npm run build-babel",
+    "builds": "npm run clean && npm run build-babel",
     "start": "npm run builds && node backend/server.js",
     "starts": "nodemon --exec babel-node backend/server.js",
-
     "build": "cd frontend && npm run build",
     "install-frontend": "cd frontend && npm install",
     "heroku-postbuild": "npm run install-frontend && npm run build"
@@ -17,6 +16,7 @@
   "author": "Frank Norbert Mba",
   "license": "ISC",
   "dependencies": {
+    "babel-preset-env": "^1.7.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cloudinary": "^1.23.0",
