@@ -16,7 +16,7 @@
   "author": "Frank Norbert Mba",
   "license": "ISC",
   "dependencies": {
-    "babel-cli": "^6.26.0",
+    "babel-node": "0.0.1-security",
     "babel-preset-env": "^1.7.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
@@ -44,6 +44,7 @@
     "@babel/core": "^7.11.1",
     "@babel/node": "^7.10.5",
     "@babel/preset-env": "^7.11.0",
+    "babel-core": "^7.0.0-bridge.0",
     "nodemon": "^2.0.4"
   }
 }
