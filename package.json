@@ -4,7 +4,9 @@
   "description": "just authenticates the user",
   "main": "app.js",
   "scripts": {
-    "start": "node --exec babel-node backend/server.js",
+    "start": "node backend/server.js",
+    "starts": "nodemon --exec babel-node backend/server.js",
+
     "build": "cd frontend && npm run build",
     "install-frontend": "cd frontend && npm install",
     "heroku-postbuild": "npm run install-frontend && npm run build"
