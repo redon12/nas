@@ -51,6 +51,10 @@ server.get("/api/products/:id", (req, res)=> {
     }
 });
 
+server.get("/", (req,res)=>{
+    res.sendFile("../frontend/build"+"/index.html")
+})
+
 if (process.env.NODE_ENV == "production"){
     server.use(express.static("../frontend/build"))
 }
