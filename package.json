@@ -7,7 +7,7 @@
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build ./src -s",
     "builds": "npm run clean && npm run build-babel",
-    "start": "babel-node backend/server.js",
+    "start": "nodemon --exec babel-node backend/server.js",
     "starts": "nodemon --exec babel-node backend/server.js",
     "build": "cd frontend && npm run build",
     "install-frontend": "cd frontend && npm install",
