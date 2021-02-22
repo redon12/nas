@@ -7,7 +7,7 @@
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build ./src -s",
     "builds": "npm run clean && npm run build-babel",
-    "start": "npm run builds && node backend/server.js",
+    "start": "babel-node backend/server.js",
     "starts": "nodemon --exec babel-node backend/server.js",
     "build": "cd frontend && npm run build",
     "install-frontend": "cd frontend && npm install",
@@ -16,6 +16,7 @@
   "author": "Frank Norbert Mba",
   "license": "ISC",
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
