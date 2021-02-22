@@ -52,7 +52,7 @@ server.get("/api/products/:id", (req, res)=> {
 });
 
 if (process.env.NODE_ENV == "production"){
-    app.use(express.static("../frontend/build"))
+    server.use(express.static("../frontend/build"))
 }
 
 server.listen(process.env.PORT||"5001", ()=>{
