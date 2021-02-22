@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/static/css/main.339e2ff8.chunk.css",
+    "main.js": "/static/js/main.0f0002c3.chunk.js",
+    "main.js.map": "/static/js/main.0f0002c3.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.c8a21426.js",
+    "runtime-main.js.map": "/static/js/runtime-main.c8a21426.js.map",
+    "static/js/2.f4709857.chunk.js": "/static/js/2.f4709857.chunk.js",
+    "static/js/2.f4709857.chunk.js.map": "/static/js/2.f4709857.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.889cb6c740ee1f22eca6c588b8c3c1a9.js": "/precache-manifest.889cb6c740ee1f22eca6c588b8c3c1a9.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.339e2ff8.chunk.css.map": "/static/css/main.339e2ff8.chunk.css.map",
+    "static/js/2.f4709857.chunk.js.LICENSE.txt": "/static/js/2.f4709857.chunk.js.LICENSE.txt",
+    "static/media/image1.jpg": "/static/media/image1.08a85d93.jpg",
+    "static/media/image2.jpg": "/static/media/image2.2cf7ca02.jpg",
+    "static/media/img1.jpg": "/static/media/img1.7c29d529.jpg",
+    "static/media/img2.jpg": "/static/media/img2.76f467b5.jpg",
+    "static/media/img3.jpg": "/static/media/img3.ec2d37ed.jpg",
+    "static/media/img4.jpg": "/static/media/img4.9e3122ab.jpg",
+    "static/media/img5.jpg": "/static/media/img5.2280a93a.jpg",
+    "static/media/img6.jpg": "/static/media/img6.f4692e3c.jpg",
+    "static/media/img7.jpg": "/static/media/img7.2c8a67c7.jpg",
+    "static/media/medMojoLogo.svg": "/static/media/medMojoLogo.4f8bdc95.svg",
+    "static/media/medMojoLogo.png": "/static/media/medMojoLogo.93392237.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c8a21426.js",
+    "static/js/2.f4709857.chunk.js",
+    "static/css/main.339e2ff8.chunk.css",
+    "static/js/main.0f0002c3.chunk.js"
+  ]
+}

@@ -50,13 +50,14 @@ server.get("/api/products/:id", (req, res)=> {
         console.log("part of the else")
     }
 });
+const dirss = __dirname+"/build"
 
 server.get("/", (req,res)=>{
-    res.sendFile("../frontend/build"+"/index.html")
+    res.sendFile(dirss+"/index.html")
 })
 
 if (process.env.NODE_ENV == "production"){
-    server.use(express.static("../frontend/build"))
+    server.use(express.static(dirss))
 }
 
 server.listen(process.env.PORT||"5001", ()=>{
