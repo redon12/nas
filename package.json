@@ -4,7 +4,10 @@
   "description": "just authenticates the user",
   "main": "app.js",
   "scripts": {
-    "start": "node babel-node backend/server.js",
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel -d ./build ./src -s",
+    "builds":"npm run clean && npm run build-babel",
+    "start": "npm run builds && node backend/server.js",
     "starts": "nodemon --exec babel-node backend/server.js",
 
     "build": "cd frontend && npm run build",
