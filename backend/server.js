@@ -3,6 +3,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import router from './routes/UserRoutes';
 import bodyParser from 'body-parser';
+
 // import dotenv from 'dotenv'
 import cors from 'cors'
 // require("dotenv").config()
@@ -49,6 +50,10 @@ server.get("/api/products/:id", (req, res)=> {
         console.log("part of the else")
     }
 });
+
+if (process.env.NODE_ENV == "production"){
+    app.use(express.static("../frontend/build"))
+}
 
 server.listen(process.env.PORT||"5001", ()=>{
     console.log("server connected successfully");
