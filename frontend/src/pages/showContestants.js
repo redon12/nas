@@ -57,12 +57,12 @@ function ShowContestantsPage(props){
     return (
         <div>
             <NavBar/>
-            {pageUnique?pageUnique.mrUnique:"there is nothing here"}
+            
             <div className={"container"}>
                 <div className={"row justify-content-center"}>
                         {/* card starts here */}
                         <div className={"col-sm-12 col-lg-12 card my-5 border border-info p-3"}>
-                        <center><ReactCrop crop={{ aspect: 49 / 9 }} className={"align-self-start img-fluid col-lg-12 col-sm-12"} src={props.location.state.image}/></center>
+                        <center><img className={"align-self-start img-fluid col-lg-12 col-sm-12"} src={props.location.state.image}/></center>
                         <div className={"card-body col-sm-12"}>
 
 

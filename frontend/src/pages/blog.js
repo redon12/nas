@@ -132,17 +132,17 @@ const Blog = (props)=>{
                             </ol>
                             <div className={"carousel-inner"} role={"listbox"}>
                                 <div className={"carousel-item active"}>
-                                    <img className={"d-block img-fluid"} 
+                                    <img style = {{width:600,height:400}} className={"d-block img-fluid"} 
                                         src={require("../images/jaycloud1.jpg")}/>
                                 </div>
 
                                 <div className={"carousel-item active"}>
-                                    <img className={"d-block img-fluid"} 
+                                    <img style = {{width:600,height:400}} className={"d-block img-fluid"} 
                                         src={require("../images/nasBannerWithArtist.jpg")}/>
                                 </div>
 
                                 <div className={"carousel-item active"}>
-                                    <img className={"d-block img-fluid"} 
+                                    <img style = {{width:600,height:400}} className={"d-block img-fluid"} 
                                         src={require("../images/nasWeekInvite.jpg")}/>
                                 </div>
                                 
@@ -184,6 +184,7 @@ const Blog = (props)=>{
                                     Vote - {conts.cvoteprice}NGN per vote
                                 </li>
                             </ul>
+                            <button className={"btn btn-info col-lg-12"}>View More</button>
                     </div>
                 </div>
                 {/* card ends here */}
@@ -204,7 +205,7 @@ const Blog = (props)=>{
                         <div className={"card-body"}>
                             <p className={"card-text"}>
 
-                                Blaize Kizito Pascal
+                               <center> <strong>Blaize Kizito Pascal</strong></center>
                             </p>
 
                                 <ul className={"list-group"}>
@@ -225,7 +226,8 @@ const Blog = (props)=>{
                         <div className={"card-body"}>
                             <p className={"card-text"}>
 
-                                Wuzor Williams Chibuike
+                               <center> <strong>Wuzor Williams Chibuike</strong></center>
+                                
                             </p>
 
                                 <ul className={"list-group"}>
@@ -253,7 +255,8 @@ const Blog = (props)=>{
                         <div className={"card-body"}>
                             <p className={"card-text"}>
 
-                                B.I.G.
+                               <center> <strong>B.I.G.</strong></center>
+                                
                             </p>
 
                                 <ul className={"list-group"}>
@@ -277,7 +280,8 @@ const Blog = (props)=>{
                         <div className={"card-body"}>
                             <p className={"card-text"}>
 
-                                Kizito Okafor
+                               <center> <strong>Kizito Okafor</strong></center>
+                                
                             </p>
 
                                 <ul className={"list-group"}>
@@ -307,7 +311,8 @@ const Blog = (props)=>{
             <div className={"card-body"}>
                 <p className={"card-text"}>
 
-                    JayCloud
+                <center> <strong>JayCloud</strong></center>
+                    
                 </p>
 
                     <ul className={"list-group"}>
@@ -331,7 +336,8 @@ const Blog = (props)=>{
             <div className={"card-body"}>
                 <p className={"card-text"}>
 
-                    YJ
+                <center> <strong>YJ</strong></center>
+                    
                 </p>
 
                     <ul className={"list-group"}>
