@@ -1,33 +1,33 @@
 {
   "files": {
     "main.css": "/static/css/main.339e2ff8.chunk.css",
-    "main.js": "/static/js/main.c744005d.chunk.js",
-    "main.js.map": "/static/js/main.c744005d.chunk.js.map",
+    "main.js": "/static/js/main.4a0f5fcd.chunk.js",
+    "main.js.map": "/static/js/main.4a0f5fcd.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.c8a21426.js",
     "runtime-main.js.map": "/static/js/runtime-main.c8a21426.js.map",
-    "static/js/2.f4709857.chunk.js": "/static/js/2.f4709857.chunk.js",
-    "static/js/2.f4709857.chunk.js.map": "/static/js/2.f4709857.chunk.js.map",
+    "static/js/2.e9cdaa65.chunk.js": "/static/js/2.e9cdaa65.chunk.js",
+    "static/js/2.e9cdaa65.chunk.js.map": "/static/js/2.e9cdaa65.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.c4d9051dff0cd3da002748378a90255e.js": "/precache-manifest.c4d9051dff0cd3da002748378a90255e.js",
+    "precache-manifest.da60ff7e4bec3410820a024f25077b4f.js": "/precache-manifest.da60ff7e4bec3410820a024f25077b4f.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.339e2ff8.chunk.css.map": "/static/css/main.339e2ff8.chunk.css.map",
-    "static/js/2.f4709857.chunk.js.LICENSE.txt": "/static/js/2.f4709857.chunk.js.LICENSE.txt",
+    "static/js/2.e9cdaa65.chunk.js.LICENSE.txt": "/static/js/2.e9cdaa65.chunk.js.LICENSE.txt",
+    "static/media/BIG.jpg": "/static/media/BIG.f4692e3c.jpg",
+    "static/media/KizitoSponsor.jpg": "/static/media/KizitoSponsor.2280a93a.jpg",
+    "static/media/LocChairmanKizito.jpg": "/static/media/LocChairmanKizito.ed87c14b.jpg",
+    "static/media/YJ.jpg": "/static/media/YJ.b66a502a.jpg",
     "static/media/image1.jpg": "/static/media/image1.08a85d93.jpg",
     "static/media/image2.jpg": "/static/media/image2.2cf7ca02.jpg",
-    "static/media/img1.jpg": "/static/media/img1.7c29d529.jpg",
-    "static/media/img2.jpg": "/static/media/img2.76f467b5.jpg",
-    "static/media/img3.jpg": "/static/media/img3.ec2d37ed.jpg",
-    "static/media/img4.jpg": "/static/media/img4.9e3122ab.jpg",
-    "static/media/img5.jpg": "/static/media/img5.2280a93a.jpg",
-    "static/media/img6.jpg": "/static/media/img6.f4692e3c.jpg",
-    "static/media/img7.jpg": "/static/media/img7.2c8a67c7.jpg",
+    "static/media/jaycloud1.jpg": "/static/media/jaycloud1.66ef8c84.jpg",
     "static/media/medMojoLogo.svg": "/static/media/medMojoLogo.4f8bdc95.svg",
-    "static/media/medMojoLogo.png": "/static/media/medMojoLogo.93392237.png"
+    "static/media/medMojoLogo.png": "/static/media/medMojoLogo.93392237.png",
+    "static/media/nasBannerWithArtist.jpg": "/static/media/nasBannerWithArtist.1eceb393.jpg",
+    "static/media/nasWeekInvite.jpg": "/static/media/nasWeekInvite.25875de6.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.c8a21426.js",
-    "static/js/2.f4709857.chunk.js",
+    "static/js/2.e9cdaa65.chunk.js",
     "static/css/main.339e2ff8.chunk.css",
-    "static/js/main.c744005d.chunk.js"
+    "static/js/main.4a0f5fcd.chunk.js"
   ]
 }

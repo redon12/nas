@@ -119,62 +119,34 @@ const Blog = (props)=>{
                         <div id={"slider3"} className={"col-lg-8 mt-2 carousel slide mb-5"} data-ride={"carousel"}>
                             <ol className={"carousel-indicators"}>
                                 <li className={"active"} data-target={"#slider3"}
-                                    data-slide-to="0"></li>
+                                    data-slide-to="0">
+                                </li>
                                 <li data-target={"#slider3"} 
                                     data-slide-to={"1"}>
                                 </li>
                                 <li data-target={"#slider3"}
                                     data-slide-to={"2"}> 
                                 </li>
-                                <li data-target={"#slider3"}
-                                    data-slide-to={"3"}> 
-                                </li>
-                                <li data-target={"#slider3"}
-                                    data-slide-to={"4"}> 
-                                </li>
-                                <li data-target={"#slider3"}
-                                    data-slide-to={"5"}> 
-                                </li>
-                                <li data-target={"#slider3"}
-                                    data-slide-to={"6"}> 
-                                </li>
+                               
 
                             </ol>
                             <div className={"carousel-inner"} role={"listbox"}>
                                 <div className={"carousel-item active"}>
                                     <img className={"d-block img-fluid"} 
-                                        src={require("../images/img5.jpg")}/>
+                                        src={require("../images/jaycloud1.jpg")}/>
                                 </div>
 
                                 <div className={"carousel-item active"}>
                                     <img className={"d-block img-fluid"} 
-                                        src={require("../images/img4.jpg")}/>
+                                        src={require("../images/nasBannerWithArtist.jpg")}/>
                                 </div>
 
                                 <div className={"carousel-item active"}>
                                     <img className={"d-block img-fluid"} 
-                                        src={require("../images/img3.jpg")}/>
+                                        src={require("../images/nasWeekInvite.jpg")}/>
                                 </div>
                                 
-                                <div className={"carousel-item active"}>
-                                    <img className={"d-block img-fluid"} 
-                                        src={require("../images/img2.jpg")}/>
-                                </div>
-
-                                <div className={"carousel-item active"}>
-                                    <img className={"d-block img-fluid"} 
-                                        src={require("../images/img1.jpg")}/>
-                                </div>
-
-                                <div className={"carousel-item"}>
-                                    <img className={"d-block img-fluid"} 
-                                        src={require("../images/img6.jpg")}/>
-                                </div>
-
-                                <div className={"carousel-item"}>
-                                    <img className={"d-block img-fluid"} 
-                                        src={require("../images/img7.jpg")}/>
-                                </div>
+                                
                                 
                             </div>
                             <a className={"carousel-control-prev"} data-target={"#slider3"}
@@ -206,10 +178,10 @@ const Blog = (props)=>{
 
                             <ul className={"list-group"}>
                                 <li className={"list-group-item h6"}>
-                                    Deadline :{conts.cdeadline}
+                                    Deadline - {conts.cdeadline}
                                 </li>
                                 <li className={"list-group-item h6"}>
-                                    Vote : {conts.cvoteprice}NGN per vote
+                                    Vote - {conts.cvoteprice}NGN per vote
                                 </li>
                             </ul>
                     </div>
@@ -221,24 +193,47 @@ const Blog = (props)=>{
                      </div>
                     </div>
                     
-                        <p className={"h4 m-1 border p-5 py-5 shadow"}>Ongoing contest</p>
                    
                 </div>
+                <p className={"h4 m-3 border p-5 py-5 shadow text-info"}>LOC Board Members</p>
+
                 <div className={"row justify-content-center"}>
-                        <div className={"pointit card border col-lg-12 m-1"}>
-                        <img style={{width:200, height:100}} src={require("../images/medMojoLogo.png")} />
+                    {/* begining of card */}
+                        <div className={"pointit card border col-lg-6 m-1"}>
+                        <img className={"image-fluid col-lg-12"} src={require("../images/LocChairmanKizito.jpg")} />
                         <div className={"card-body"}>
                             <p className={"card-text"}>
 
-                                Face of Natural Science
+                                Blaize Kizito Pascal
                             </p>
 
                                 <ul className={"list-group"}>
                                     <li className={"list-group-item h6"}>
-                                        Deadline : 12<sup>th</sup> march, 2021
+                                        title - LOC Chairman
                                     </li>
                                     <li className={"list-group-item h6"}>
-                                        Vote : N50 per vote
+                                        Dept - Computer Science
+                                    </li>
+                                </ul>
+                        </div>
+                    </div>
+                    {/* end of card */}
+
+                     {/* begining of card */}
+                     <div className={"pointit card border col-lg-6 m-1"}>
+                        <img className={"image-fluid col-lg-12"} src={require("../images/LocChairmanKizito.jpg")} />
+                        <div className={"card-body"}>
+                            <p className={"card-text"}>
+
+                                Wuzor Williams Chibuike
+                            </p>
+
+                                <ul className={"list-group"}>
+                                    <li className={"list-group-item h6"}>
+                                        title - Co-ordinator Official
+                                    </li>
+                                    <li className={"list-group-item h6"}>
+                                        Dept - Computer Science
                                     </li>
                                 </ul>
                         </div>
@@ -247,6 +242,115 @@ const Blog = (props)=>{
 
                     </div>
             </div>
+
+            <p className={"h4 m-3 border p-5 py-5 shadow text-info"}>Sponsors</p>
+
+
+            <div className={"row justify-content-center"}>
+                    {/* begining of card */}
+                        <div className={"pointit card border col-lg-6 m-1"}>
+                        <img className={"image-fluid "} src={require("../images/BIG.jpg")} />
+                        <div className={"card-body"}>
+                            <p className={"card-text"}>
+
+                                B.I.G.
+                            </p>
+
+                                <ul className={"list-group"}>
+                                    <li className={"list-group-item h6"}>
+                                        title - Grand Sponsor
+                                    </li>
+                                    <li className={"list-group-item h6"}>
+                                        Dept : Computer Science
+                                    </li>
+                                    <li className={"list-group-item h6"}>
+                                        Level : Final Year
+                                    </li>
+                                </ul>
+                        </div>
+                    </div>
+                    {/* end of card */}
+
+                     {/* begining of card */}
+                     <div className={"pointit card border col-lg-6 m-1"}>
+                        <img className={"image-fluid col-lg-12"} src={require("../images/KizitoSponsor.jpg")} />
+                        <div className={"card-body"}>
+                            <p className={"card-text"}>
+
+                                Kizito Okafor
+                            </p>
+
+                                <ul className={"list-group"}>
+                                    <li className={"list-group-item h6"}>
+                                        title : Grand Sponsor
+                                    </li>
+                                    <li className={"list-group-item h6"}>
+                                        Dept : Optometry
+                                    </li>
+                                    <li className={"list-group-item h6"}>
+                                        Level : 400
+                                    </li>
+                                </ul>
+                        </div>
+                    </div>
+                    {/* end of card */}
+
+                    </div>
+            
+                    <p className={"h4 m-3 border p-5 py-5 shadow text-info"}>Artists</p>
+
+            
+            <div className={"row justify-content-center"}>
+        {/* begining of card */}
+            <div className={"pointit card border col-lg-6 m-1"}>
+            <img className={"image-fluid "} src={require("../images/jaycloud1.jpg")} />
+            <div className={"card-body"}>
+                <p className={"card-text"}>
+
+                    JayCloud
+                </p>
+
+                    <ul className={"list-group"}>
+                        <li className={"list-group-item h6"}>
+                            title : Top Madonna Artist
+                        </li>
+                        <li className={"list-group-item h6"}>
+                            Dept : Computer Science
+                        </li>
+                        <li className={"list-group-item h6"}>
+                            Level : 200
+                        </li>
+                    </ul>
+            </div>
+        </div>
+        {/* end of card */}
+
+         {/* begining of card */}
+         <div className={"pointit card border col-lg-6 m-1"}>
+            <img className={"image-fluid col-lg-12"} src={require("../images/YJ.jpg")} />
+            <div className={"card-body"}>
+                <p className={"card-text"}>
+
+                    YJ
+                </p>
+
+                    <ul className={"list-group"}>
+                        <li className={"list-group-item h6"}>
+                            title : Top Madonna Artist
+                        </li>
+                        <li className={"list-group-item h6"}>
+                            Dept : Computer Science
+                        </li>
+                        <li className={"list-group-item h6"}>
+                            Level : Final Year
+                        </li>
+                    </ul>
+            </div>
+        </div>
+        {/* end of card */}
+
+        </div>
+
        <center><Footer/></center> 
         </div>
     )
