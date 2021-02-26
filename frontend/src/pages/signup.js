@@ -24,9 +24,9 @@ const SignUpPage=(props)=>{
       dispatch(registerAction({lname,contestantemail,
       fname, pwd:Password,contestantfaculty,contestantphone,contestantpics,
         repwd:rePassword, contestantlevel, contestantdept,contestantDOB}))
-      // if (regInfo){
-      // props.history.push("/signin")
-      // }
+      if (regInfo){
+      props.history.push("/signin")
+      }
     }
     return (
         <div>

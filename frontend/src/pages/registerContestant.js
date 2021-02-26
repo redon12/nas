@@ -32,6 +32,7 @@ const RegContestant = (props)=>{
           phone:userInfo.data.contestantphone, 
           pics:profPix,
           contestIn:props.location.state.detail})}
+          props.history.push("/userpanel")
       
     }
 

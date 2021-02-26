@@ -98,7 +98,7 @@ function VotePage(props){
                                 <strong className={"d-block mb-3 text-info"}>FACE OF NATURAL SCIENCE CONTEST, MADONNA UNIVERSITY</strong>
                                 <span className={"d-block mb-3"}><strong>Type:</strong> Face</span>
                                 <span className={"d-block mb-3"}><strong>Time:</strong>02 months: 02 days: 23 hours: 40 minutes: 30 seconds</span>
-                                <span className={"d-block mb-3"}><strong>Contest Registration is Ongoing </strong><Link to={"/register"}>Register For Contest Now!</Link></span>
+                                <span className={"d-block mb-3"}><strong>Contest Registration is Ongoing </strong><Link to={"/regcontestant"}>Register For Contest Now!</Link></span>
                                 
                                 <span className={"d-block mb-3"}><strong>Share Contestants</strong></span>
                                 <p>
@@ -129,7 +129,7 @@ function VotePage(props){
                                 <form onSubmit={submitPayment}>
                                     <fieldset className={"form-group"}>
                                     <input onChange={e=>setItPrice(e)} className={"form-control"} value={noVotes[0]}
-                                    placeholder={"Enter the total number of votes you want"} type={"text"} required />
+                                    placeholder={"Enter the total number of votes you want"} type={"number"} required />
                                     </fieldset>
                                     
                                     <fieldset className={"form-group"}>

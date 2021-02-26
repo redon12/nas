@@ -45,6 +45,9 @@ const UserPanel = (props)=>{
                             <div className={"media-body"}>
                                 <span className={"d-block"}>Name: <strong>{userInfo.data.fname} {userInfo.data.lname}</strong></span>
                                 <span className={"d-block"}>Your Contests: <strong className={"h6"}>Face of Natural Science, Face of Madonna</strong></span>
+                                <span className={"d-block"}>Department: <strong >{userInfo.data.dept}</strong></span>
+                                <span className={"d-block"}>Level: <strong >{userInfo.data.level}</strong></span>
+                                <span className={"d-block"}>Faculty: <strong >{userInfo.data.faculty}</strong></span>
 
 
 
