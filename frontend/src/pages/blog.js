@@ -196,7 +196,7 @@ const Blog = (props)=>{
                     
                    
                 </div>
-                <p className={"h4 m-3 border p-5 py-5 shadow text-info"}>LOC Board Members</p>
+                <p className={"h4 m-3 border p-5 py-5 shadow text-info"}>SOC Board Members</p>
 
                 <div className={"row justify-content-center"}>
                     {/* begining of card */}
@@ -205,12 +205,12 @@ const Blog = (props)=>{
                         <div className={"card-body"}>
                             <p className={"card-text"}>
 
-                               <center> <strong>Blaize Kizito Pascal</strong></center>
+                               <center> <strong>Catechist Ndukwe Blaize Kizito</strong></center>
                             </p>
 
                                 <ul className={"list-group"}>
                                     <li className={"list-group-item h6"}>
-                                        title - LOC Chairman
+                                        Title - SOC Chairman
                                     </li>
                                     <li className={"list-group-item h6"}>
                                         Dept - Computer Science
@@ -222,7 +222,7 @@ const Blog = (props)=>{
 
                      {/* begining of card */}
                      <div className={"pointit card border col-lg-6 m-1"}>
-                        <img className={"image-fluid col-lg-12"} src={require("../images/LocChairmanKizito.jpg")} />
+                        <img className={"image-fluid col-lg-12"} src={require("../images/LocWilliams.jpg")} />
                         <div className={"card-body"}>
                             <p className={"card-text"}>
 
@@ -232,7 +232,7 @@ const Blog = (props)=>{
 
                                 <ul className={"list-group"}>
                                     <li className={"list-group-item h6"}>
-                                        title - Co-ordinator Official
+                                        Title - Co-ordinator Official
                                     </li>
                                     <li className={"list-group-item h6"}>
                                         Dept - Computer Science
@@ -261,7 +261,7 @@ const Blog = (props)=>{
 
                                 <ul className={"list-group"}>
                                     <li className={"list-group-item h6"}>
-                                        title - Grand Sponsor
+                                        Title - Grand Sponsor
                                     </li>
                                     <li className={"list-group-item h6"}>
                                         Dept : Computer Science
@@ -286,7 +286,7 @@ const Blog = (props)=>{
 
                                 <ul className={"list-group"}>
                                     <li className={"list-group-item h6"}>
-                                        title : Grand Sponsor
+                                        Title : Grand Sponsor
                                     </li>
                                     <li className={"list-group-item h6"}>
                                         Dept : Optometry
@@ -317,7 +317,7 @@ const Blog = (props)=>{
 
                     <ul className={"list-group"}>
                         <li className={"list-group-item h6"}>
-                            title : Top Madonna Artist
+                            Title : Top Madonna Artist
                         </li>
                         <li className={"list-group-item h6"}>
                             Dept : Computer Science
@@ -332,7 +332,7 @@ const Blog = (props)=>{
 
          {/* begining of card */}
          <div className={"pointit card border col-lg-6 m-1"}>
-            <img className={"image-fluid col-lg-12"} src={require("../images/YJ.jpg")} />
+            <img className={"image-fluid col-lg-12"} src={require("../images/YJ2.jpg")} />
             <div className={"card-body"}>
                 <p className={"card-text"}>
 
@@ -342,7 +342,7 @@ const Blog = (props)=>{
 
                     <ul className={"list-group"}>
                         <li className={"list-group-item h6"}>
-                            title : Top Madonna Artist
+                            Title : Top Madonna Artist
                         </li>
                         <li className={"list-group-item h6"}>
                             Dept : Computer Science
