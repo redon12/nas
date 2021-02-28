@@ -52,10 +52,13 @@ server.get("/api/products/:id", (req, res)=> {
 });
 const dirss = __dirname+"/build"
 
-server.get("/*", (req,res)=>{
+server.get("/", (req,res)=>{
     res.sendFile(dirss+"/index.html")
 })
 
+server.get("/*", (req,res)=>{
+    res.sendFile(dirss+"/index.html")
+})
 if (process.env.NODE_ENV == "production"){
     server.use(express.static(dirss))
 }
