@@ -56,11 +56,8 @@ server.get("/", (req,res)=>{
     res.sendFile(dirss+"/index.html")
 })
 
-server.get("/*", (req,res)=>{
-    res.sendFile(dirss+"/index.html")
-})
-if (process.env.NODE_ENV == "production"){
-    server.use(express.static(dirss))
+
+
 }
 
 server.listen(process.env.PORT||"5001", ()=>{
