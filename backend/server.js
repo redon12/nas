@@ -52,7 +52,7 @@ server.get("/api/products/:id", (req, res)=> {
 });
 const dirss = __dirname+"/build"
 
-server.get("/", (req,res)=>{
+server.get("/*", (req,res)=>{
     res.sendFile(dirss+"/index.html")
 })
 
