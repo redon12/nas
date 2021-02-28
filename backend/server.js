@@ -57,8 +57,11 @@ server.get("/", (req,res)=>{
 })
 
 
+if (process.env.NODE_ENV == "production"){
+    server.use(express.static(dirss))
 
-
+    
+}
 
 server.listen(process.env.PORT||"5001", ()=>{
     console.log("server connected successfully");
