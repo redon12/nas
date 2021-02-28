@@ -23,12 +23,11 @@ const UserPanel = (props)=>{
             <div className="side-bar bg-light shadow-lg">
                 <span className={"side-close-button text-success"} onClick={closeButton}>x</span>
             <div className={"border"}> <span className={"fas fa-user h1 m-3 text-success"}></span><span className={"text-sucess"}>{userInfo.data.name}</span></div>
-                        <Link className={"border border-left-0 border-top-0 border-right-0 m-1 text-dark p-2"} to="/appointment"> Home</Link>
+                        <Link className={"border border-left-0 border-top-0 border-right-0 m-1 text-dark p-2"} to="/"> Home</Link>
                     
                     
-                        <Link className={"border border-top-0 border-left-0 border-right-0 m-1 text-dark p-2"} to="/appointment"> See Ongoing contest</Link>
+                        <Link className={"border border-top-0 border-left-0 border-right-0 m-1 text-dark p-2"} to="/"> See Ongoing contest</Link>
                     
-                        <Link className={"border border-top-0 border-right-0 border-left-0 m-1 text-dark p-2"} to="/appointment"> See your contests</Link>
                    
             </div>
 
@@ -38,17 +37,18 @@ const UserPanel = (props)=>{
                     {/* picture page starts here */}
                     <div className={"col-lg-12 border my-2 shadow"}>
                        <center> <span className={'border display-4 p-2 m-3 text-success col-sm-12'}>
-                           <img onClick={openButton} src={userInfo.data.pics} 
-                           className={" bg-light p-1 img-logo-prof rounded border text-success m-3"}/>
+                          {userInfo.data.pics!=""? <img onClick={openButton} src={userInfo.data.pics} 
+                           className={" bg-light p-1 img-logo-prof rounded border text-success m-3"}/>:<span className={"fas fa-user display-1"}></span>}
                            </span></center>
                         <div className={"h4 m-3 text-success  border-bottom-1 media"}>
                             <div className={"media-body"}>
-                                <span className={"d-block"}>Name: <strong>{userInfo.data.fname} {userInfo.data.lname}</strong></span>
+                                <table className={"border p-3"}>
+                               <tr> <span className={"d-block"}>Name: <strong>{userInfo.data.fname} {userInfo.data.lname}</strong></span></tr>
                                 <span className={"d-block"}>Your Contests: <strong className={"h6"}>Face of Natural Science, Face of Madonna</strong></span>
                                 <span className={"d-block"}>Department: <strong >{userInfo.data.dept}</strong></span>
                                 <span className={"d-block"}>Level: <strong >{userInfo.data.level}</strong></span>
                                 <span className={"d-block"}>Faculty: <strong >{userInfo.data.faculty}</strong></span>
-
+                                </table>
 
 
                             </div>

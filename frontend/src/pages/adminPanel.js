@@ -49,6 +49,14 @@ const AdminPanel = (props)=>{
                         </div>
                     </div>
 
+                    <div onClick={e=>props.history.push('/seetotalcontestants')} className={"card col-lg-3 m-1 pointit"}>
+                        <div className={"card-body"}>
+                            <p className={'text-center text-success h4'}>
+                            <span className={"fas fa-microscope m-1"}></span> Contestant Log
+                            </p>
+                        </div>
+                    </div>
+
                 
             </div>
         </div>

@@ -113,7 +113,8 @@ function SeeAllMessages(props){
                                 </ul>
                             </p>
                             <fieldset className={"form-group"}>
-                                <button onClick={e=>{gyrateTo(mrD._id)}} className={"btn btn-info"}>Authorize</button>
+                               {mrD.authorized == true ?null:
+                               <button onClick={e=>{gyrateTo(mrD._id)}} className={"btn btn-info"}>Authorize</button>} 
                             </fieldset>
                     </div>
                 </div>

@@ -24,7 +24,8 @@ const paymentSchema = new mongoose.Schema({
         noVotes:{type:Array},
         alertInfo:{type: String},
         cEmail:{type: String},
-        uniq:{type:String}
+        uniq:{type:String},
+        authorized:{type:Boolean, default:false}
         
 })
 const regContySchema = new mongoose.Schema({

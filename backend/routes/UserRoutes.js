@@ -105,6 +105,14 @@ router.post("/fetchcontestants", async (req, res)=>{
     console.log(contestants)
     res.send(contestants)
 })
+
+router.post("/fetchallcontestants", async (req, res)=>{
+    console.log(req.body)
+    const AllContestants = await regConty.find()
+    console.log(AllContestants)
+    res.send(AllContestants)
+})
+
 router.post("/castvote", async (req, res)=>{
     try{
     console.log("just got in to cast a vote")
@@ -113,7 +121,11 @@ router.post("/castvote", async (req, res)=>{
     const IndividualVote = await regConty.updateOne({
         contestantemail: req.body.email,
         contestIn:req.body.uniq
-    },{vote:Number(req.body.vote) + Number(getNumVote.vote)})
+    },{vote:Number(req.body.vote) + Number(getNumVote.vote),})
+    const authorizeIt = await paymentDetails.updateOne({
+        _id:req.body.id
+    },{authorized:true})
+    console.log(req.body.id)
     res.send({msg:"vote was successful"})
     }
     catch(error){

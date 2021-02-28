@@ -12,6 +12,7 @@ function Authorization(props){
     const [vote, setVote] = useState('')
     const [uniq, setUniq] = useState('')
     const [cEmail, setCEmail] = useState('')
+    const [id, setId] = useState('')
     console.log(props.location.state.id)
     const fetchMsgs = async ()=>{
         console.log("this was launched from the datas hook")
@@ -21,6 +22,7 @@ function Authorization(props){
         setVote(data.data.noVotes[0])
         setUniq(data.data.uniq)
         setCEmail(data.data.email)
+        setId(data.data._id)
 
 
         console.log(data)
@@ -28,7 +30,7 @@ function Authorization(props){
 
     const castVotes = async ()=>{
         console.log("this part executed")
-        const votex = await Axios.post("/users/castvote", {uniq, vote, email:cEmail})
+        const votex = await Axios.post("/users/castvote", {id, uniq, vote, email:cEmail})
         alert(votex.data.msg)
     }
     console.log(datas)
@@ -121,7 +123,8 @@ function Authorization(props){
                                 </ul>
                             </p>
                             <fieldset className={"form-group"}>
-                                <button onClick={e=>{castVotes()}} className={"btn btn-info"}>Authorize</button>
+                            {datas.authorized == true ?null:
+                               <button onClick={e=>{castVotes()}} className={"btn btn-info"}>Authorize</button>} 
                             </fieldset>
                     </div>
                 </div>:null}

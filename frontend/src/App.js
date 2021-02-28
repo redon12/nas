@@ -20,6 +20,8 @@ import RecoveryCode from './pages/recoveryCode';
 import RecoveryPasswordChange from './pages/recoveryPasswordChange';
 import SeeAllMessages from './pages/seeallmessages';
 import Authorization from './pages/authorization';
+import SeeTotalContestants from './pages/seeTotalContestants';
+import ApprovePage from './pages/approvepage';
 require("dotenv").config()
 
 
@@ -67,7 +69,11 @@ const App = (props)=>{
     <Route path={"/recoverypassword"}   component={RecoveryPasswordChange}/>
     <Route path={"/seeallmessages"} component = {SeeAllMessages} />
     <Route path={"/authorization"} component = {Authorization} />
+    <Route path={"/seetotalcontestants"} component = {SeeTotalContestants} />
+    <Route path={"/approvepage"} component = {ApprovePage} />
 
+
+    
 
 
 
