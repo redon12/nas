@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import NavBar from '../components/navbar';
 
 const openButton = ()=>{
     document.querySelector('.side-bar').classList.add('open')
@@ -12,7 +13,24 @@ const AdminPanel = (props)=>{
     const infos = useSelector(state=>state.loggedIn)
     const {userInfo} = infos
     return (
-        userInfo?<div><span onClick={openButton} className={" side-open-button1 fab fa-firefox display-4 text-success m-3"}></span>
+        userInfo?<div>
+            <NavBar/>
+            <img onClick={openButton} src={require("../images/medMojoLogo.svg")} className={" bg-light p-1 img-logo side-open-button1 fab fa-firefox display-4 text-success m-3"}/>
+               <div className={"beeper-container"}> <div className={" side-open-button beeper  display-4 text-success m-3"}></div></div>
+            <div className="side-bar bg-light shadow-lg">
+                <span className={"side-close-button text-success"} onClick={closeButton}>x</span>
+            <div className={"border"}> <span className={"fas fa-user h1 m-3 text-success"}></span><span className={"text-sucess"}>{userInfo.data.name}</span></div>
+                        <Link className={"border border-left-0 border-top-0 border-right-0 m-1 text-dark p-2"} to="/"> Home</Link>
+                    
+                    
+                        <Link className={"border border-top-0 border-left-0 border-right-0 m-1 text-dark p-2"} to="/"> See Ongoing contest</Link>
+                      {userInfo.data.isAdmin?  <Link className={"border border-top-0 border-left-0 border-right-0 m-1 text-dark p-2"} to="/admin"> AdminPanel</Link>:null}
+
+                    
+                   
+            </div>
+            
+            <span onClick={openButton} className={" side-open-button1 fab fa-firefox display-4 text-success m-3"}></span>
                 <div className={" side-open-button  display-4 text-success m-3 fas fa-dot-circle"}></div>
             <div className="side-bar bg-info">
                 <span className={"side-close-button text-light"} onClick={closeButton}>X</span>

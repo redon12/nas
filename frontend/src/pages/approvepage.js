@@ -120,12 +120,19 @@ function ApprovePage(props){
                                     <center className={"border border-top-0 border-right-0 border-left-0 list-group-item"}><strong>Voting Details</strong></center>
                                     <span className={"d-block list-group-item"}>Vote Result: <strong>11.54%</strong></span>
                                     <span className={"d-block list-group-item"}>No of Votes:<strong>{datas.vote}</strong></span>
+                                    <span className={"d-block list-group-item"}>Contest<strong>{datas.contestIn}</strong></span>
 
                                     <fieldset className={"form-group list-group-item"}>
                                         <textarea className={"form-control"} value={datas.payment} disabled>
 
                                         </textarea>
                                     </fieldset>
+                                    <span className={"d-block list-group-item"}>Dept: <strong>{datas.contestantdept}</strong></span>
+                                    <span className={"d-block list-group-item"}>Faculty: <strong>{datas.contestantfaculty}</strong></span>
+                                    <span className={"d-block list-group-item"}>level: <strong>{datas.contestantlevel}</strong></span>
+                                    <span className={"d-block list-group-item"}>phone: <strong>{datas.contestantphone}</strong></span>
+                                    <span className={"d-block list-group-item"}>email: <strong>{datas.contestantemail}</strong></span>
+
 
                                     {datas.verified?null:<button onClick={e=>Authorize()} className={"col-lg-12 btn btn-info m-2"}>Authorize Contestant</button>}
                                 </p>
