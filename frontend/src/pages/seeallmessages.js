@@ -67,49 +67,49 @@ function SeeAllMessages(props){
                                        <textarea className={"form-control"} disabled>{mrD.fullname}</textarea>
                                        </fieldset>
                                     </li>
-                                    <li className={"list-group-item"}>
+                                    {/* <li className={"list-group-item"}>
                                         Email of Participant:
                                         <fieldset className={"form-group"}>
                                        <textarea className={"form-control"} disabled>{mrD.email}</textarea>
                                        </fieldset> 
-                                    </li >
-                                    <li className={"list-group-item"}>
+                                    </li > */}
+                                    {/* <li className={"list-group-item"}>
                                         contestID:
                                         <fieldset className={"form-group"}>
                                        <textarea className={"form-control"} disabled>{mrD.uniq}</textarea>
                                        </fieldset> 
-                                    </li >
-                                    <li className={"list-group-item"}>
+                                    </li > */}
+                                    {/* <li className={"list-group-item"}>
                                         Payment Details: 
                                         <fieldset className={"form-group"}>
                                        <textarea className={"form-control"} disabled>{mrD.alertInfo}</textarea>
                                        </fieldset> 
-                                    </li>
-                                    <li className={"list-group-item"}>
+                                    </li> */}
+                                    {/* <li className={"list-group-item"}>
                                         Number of Vote Casted: 
                                         <fieldset className={"form-group"}>
                                        <textarea className={"form-control"} >{mrD.noVotes[0]}</textarea>
                                        </fieldset> 
-                                    </li>
+                                    </li> */}
                                     <li className={"list-group-item"}>
                                         Total Price of vote 
                                         <fieldset className={"form-group"}>
                                        <textarea className={"form-control"} disabled>{mrD.noVotes[1] + "NGN"}</textarea>
                                        </fieldset> 
                                     </li>
-                                    <li className={"list-group-item"}>
+                                    {/* <li className={"list-group-item"}>
                                         Email of Voter: 
                                         <fieldset className={"form-group"}>
                                        <textarea className={"form-control"} disabled>{mrD.cEmail}</textarea>
                                        </fieldset> 
-                                    </li>
+                                    </li> */}
 
-                                    <li className={"list-group-item"}>
+                                    {/* <li className={"list-group-item"}>
                                         phone Number of Voter: 
                                         <fieldset className={"form-group"}>
                                        <textarea className={"form-control"} disabled>{mrD.phone}</textarea>
                                        </fieldset> 
-                                    </li>
+                                    </li> */}
                                 </ul>
                             </p>
                             <fieldset className={"form-group"}>

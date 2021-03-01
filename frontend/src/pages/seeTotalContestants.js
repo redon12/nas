@@ -70,14 +70,14 @@ function SeeTotalContestants(props){
                         <div onClick={e=>{props.history.push({pathname:"/approvepage", state:{detail:conts.contestantemail, uniq:conts.contestIn}})}} className={"card col-lg-3  mt-5 m-1 pointit"}>
                             <img style={{width:300,height:300}} class={"col-lg-12 w-100 border rounded m-2 p-2"} src={conts.constestantpics}/>
                             <div className={"card-body"}>
-                                <p className={"card-text"}>
-                                    <span className={"d-block m-2"}><strong>{conts.lname +" "+conts.fname} </strong></span>
-                                    <span className={"d-block m-2"}>Candidates Number:<strong>001</strong></span>
-                                    <span className={"d-block m-2"}>Vote Result: <strong>11.54%</strong></span>
-                                    <span className={"d-block m-2"}>No of Votes:<strong>{conts.vote}</strong></span>
-                                    <center><button 
+                                <p className={"card-text list-group"}>
+                                    <span className={"d-block list-group-item"}><strong>{conts.lname +" "+conts.fname} </strong></span>
+                                    <span className={"d-block list-group-item"}>Candidates Number:<strong>001</strong></span>
+                                    <span className={"d-block list-group-item"}>Vote Result: <strong>11.54%</strong></span>
+                                    <span className={"d-block list-group-item"}>No of Votes:<strong>{conts.vote}</strong></span>
+                                   {conts.verified?null: <center><button 
                                     onClick={e=>{props.history.push({pathname:"/approvepage", state:{detail:conts.contestantemail}})}}
-                                    className={"btn btn-success px-5"}>Approve</button></center>
+                                    className={"btn btn-success px-5"}>Approve</button></center>}
                                 </p>
                             </div>
                         </div>

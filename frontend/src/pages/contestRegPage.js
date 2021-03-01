@@ -4,7 +4,7 @@ import { contestRegAction } from '../actions/contestRegAction';
 import { registerAction } from '../actions/registerAction';
 
 const ContestReg = (props)=>{
-    const {loading, regInfo, error} = useSelector(state=>state.register)
+    const {loading, regInfo, error} = useSelector(state=>state.regContest)
   const dispatch = useDispatch()
     const [cname, setCname] = useState('')
     const [cimage, setCimage] = useState('')
@@ -18,7 +18,7 @@ const ContestReg = (props)=>{
       
       dispatch(contestRegAction({cimage, cvoteprice, cdeadline, cname}))
       if (regInfo){
-      props.history.push("/signin")
+      props.history.push("/admin")
       }
     }
     return (

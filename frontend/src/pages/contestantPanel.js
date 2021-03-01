@@ -27,6 +27,8 @@ const UserPanel = (props)=>{
                     
                     
                         <Link className={"border border-top-0 border-left-0 border-right-0 m-1 text-dark p-2"} to="/"> See Ongoing contest</Link>
+                      {userInfo.data.isAdmin?  <Link className={"border border-top-0 border-left-0 border-right-0 m-1 text-dark p-2"} to="/admin"> AdminPanel</Link>:null}
+
                     
                    
             </div>
@@ -40,15 +42,15 @@ const UserPanel = (props)=>{
                           {userInfo.data.pics!=""? <img onClick={openButton} src={userInfo.data.pics} 
                            className={" bg-light p-1 img-logo-prof rounded border text-success m-3"}/>:<span className={"fas fa-user display-1"}></span>}
                            </span></center>
-                        <div className={"h4 m-3 text-success  border-bottom-1 media"}>
-                            <div className={"media-body"}>
-                                <table className={"border p-3"}>
-                               <tr> <span className={"d-block"}>Name: <strong>{userInfo.data.fname} {userInfo.data.lname}</strong></span></tr>
-                                <span className={"d-block"}>Your Contests: <strong className={"h6"}>Face of Natural Science, Face of Madonna</strong></span>
-                                <span className={"d-block"}>Department: <strong >{userInfo.data.dept}</strong></span>
-                                <span className={"d-block"}>Level: <strong >{userInfo.data.level}</strong></span>
-                                <span className={"d-block"}>Faculty: <strong >{userInfo.data.faculty}</strong></span>
-                                </table>
+                        <div className={"h4 m-3 text-info  border-bottom-1 media"}>
+                            <div className={"media-body list-group"}>
+                                
+                               <span className={"d-block list-group-item"}>Name: <strong>{userInfo.data.fname} {userInfo.data.lname}</strong></span>
+                                <span className={"d-block list-group-item"}>Your Contests: <strong className={"h6"}>Face of Natural Science, Face of Madonna</strong></span>
+                                <span className={"d-block list-group-item"}>Department: <strong >{userInfo.data.dept}</strong></span>
+                                <span className={"d-block list-group-item"}>Level: <strong >{userInfo.data.level}</strong></span>
+                                <span className={"d-block list-group-item"}>Faculty: <strong >{userInfo.data.faculty}</strong></span>
+                                
 
 
                             </div>
@@ -59,7 +61,7 @@ const UserPanel = (props)=>{
                         
                     <div onClick={e=>props.history.push("/profile")} className={"card pointit col-lg-3 m-1"}>
                         <div className={"card-body"}>
-                            <p className={'text-center h4 text-success m-2'}>
+                            <p className={'text-center h4 text-info m-2'}>
                             <span className={"fas fa-hospital-alt m-1"}>  </span> Profile
                             </p>
                         </div>
@@ -67,7 +69,7 @@ const UserPanel = (props)=>{
                     </div>
                     <div onClick={e=>props.history.push("/")} className={"card pointit col-lg-3 m-1"}>
                         <div className={"card-body"}>
-                            <p className={'text-center text-success h4'}>
+                            <p className={'text-center text-info h4'}>
                             <span className={"fas fa-microscope m-1"}></span> See Ongoing Contests
                             </p>
                         </div>

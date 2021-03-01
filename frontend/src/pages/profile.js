@@ -46,6 +46,7 @@ const Profile = (props)=>{
         if (newPassword == confirmNewPassword){
             const data = await Axios.post("/users/changepassword", {newPassword, oldPassword,email:userInfo.email} )
             console.log(data)
+            alert(data.data.msg)
             
         }else{
             setWarning("Passwords do not Match")
@@ -79,7 +80,7 @@ const Profile = (props)=>{
                     <form onSubmit={SubmitPics} className={"card mb-4"}>
                         <center><strong className={"text-info"}>Upload Your Profile Picture</strong></center>
                         <fieldset className={"form-group m-3"}>
-                            <center><input className={"form-control-file"}
+                            <center><input required className={"form-control-file"}
                              onChange={e=>setImg(e.target.files[0])} type={"file"}/></center>
                             <small className={"text-muted"}>Upload Pictures</small>
                         </fieldset>
@@ -98,17 +99,17 @@ const Profile = (props)=>{
                             <div className={"card-body"}>
                        <form onSubmit={ChangePassword}>
                            <fieldset className={"form-group"}>
-                           <input onChange={e=>setOldPassword(e.target.value)} className={"form-control"} placeholder={"Old Password"} type={"text"} />
-                           </fieldset> ; 
+                           <input required onChange={e=>setOldPassword(e.target.value)} className={"form-control"} placeholder={"Old Password"} type={"text"} />
+                           </fieldset> 
 
                            <fieldset className={"form-group"}>
-                           <input onChange={e=>setNewPassword(e.target.value)} className={"form-control"} placeholder={"New Password"} type={"text"} value={newPassword}/>
+                           <input required onChange={e=>setNewPassword(e.target.value)} className={"form-control"} placeholder={"New Password"} type={"text"} value={newPassword}/>
                            </fieldset>
 
                            <fieldset className={"form-group"}>
-                           <input onChange={e=>{setConfirmNewPassword(e.target.value);
+                           <input required onChange={e=>{setConfirmNewPassword(e.target.value);
                             if(newPassword != confirmNewPassword){setWarning("Passwords do not Match")}
-                            else{setWarning("");
+                            else{setWarning(null);
                            
                            }}} className={"form-control"} placeholder={"Confirm New Password"} type={"text"} value={confirmNewPassword}/>
                            <small className={"text-danger"}>{warning}</small>

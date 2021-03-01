@@ -39,7 +39,7 @@ function NavBar(props){
                    
                     
                     <li className={"nav-item"}>
-                        <Link to={"/userpanel"} className={"nav-link "+navbarTextColor}>Voting</Link>
+                        <Link to={"/userpanel"} className={"nav-link "+navbarTextColor}>About</Link>
                     </li>
                    
                     

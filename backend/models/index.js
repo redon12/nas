@@ -6,7 +6,7 @@ const newSchema = new mongoose.Schema({
         lname:{type:String},
         constestantpics: {type:String},
         contestantDOB:{type: String},
-        isAdmin:{type:String, default:false},
+        isAdmin:{type:Boolean, default:false},
         contestantfaculty: {type:String},
         contestantdept: {type:String},
         contestantlevel: {type:String},
@@ -14,6 +14,7 @@ const newSchema = new mongoose.Schema({
         contestantemail:{type:String, unique:true},
         pwd:{type:String},
         dates:{type:Date},
+        verified:{type:Boolean, default:false}
 })
 
 const paymentSchema = new mongoose.Schema({
@@ -42,6 +43,9 @@ const regContySchema = new mongoose.Schema({
         contestantlevel:{type:String},
         vote:{type:String, default:0},
         contestIn: {type:String},
+        payment: {type:String, default:"No payment yet"},
+        no:{type:Number, default:0},
+        verified:{type:Boolean, default:false}
         
 
 

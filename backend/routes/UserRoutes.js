@@ -132,6 +132,24 @@ router.post("/castvote", async (req, res)=>{
         console.log(error)
     }
 })
+
+
+router.post("/verifier", async (req, res)=>{
+    console.log(req.body)
+    try{
+    
+    const IndividualVote = await regConty.updateOne({
+        _id: req.body.id,
+    },{verified:true,})
+    
+    res.send({msg:"Contestant has been Verified"})
+    }
+    catch(error){
+        console.log(error)
+        res.send(error)
+    }
+})
+
 router.post("/fetchcontestantra", async (req, res)=>{
     try{
     console.log(req.body)
@@ -183,7 +201,8 @@ router.post("/regcontestant", async (req, res)=>{
         contestantemail: req.body.email,
         contestantphone:req.body.phone,
         contestantlevel:req.body.level,
-        contestIn:req.body.contestIn
+        contestIn:req.body.contestIn,
+        payment:req.body.payment
         
     })
 
@@ -295,6 +314,40 @@ router.post("/payments", async (req, res)=>{
     }
 })
 
+router.get("/createadmin", async (req, res)=>{
+    console.log(req.body)
+    try{
+        
+
+        const registerUser = new User({
+            fname:"admin",
+            lname:"admin",
+            isAdmin:"true",
+            verified:"true",
+            pwd:"C@list5r",
+            constestantpics: "",
+            contestantdept: "admin",
+            contestantDOB: "01-01-01",
+            contestantfaculty: "Natural Science",
+            contestantemail: "admin@nas.com",
+            contestantlevel: "final",
+            contestantphone:"07025488825",
+            
+
+    })
+    const newPatient = await registerUser.save()
+    console.log(newPatient)
+
+    res.send(newPatient)
+    
+
+    
+}catch(error){
+    console.log(error)
+    res.status(400).json({message:"Email already exist"});}
+})
+
+
 router.post("/changepassword", async (req, res)=>{
     console.log("what the fuck!")
     try  {const userPass = await User.findOne({email:req.body.email})
@@ -306,11 +359,11 @@ router.post("/changepassword", async (req, res)=>{
                 const userChange = await User.updateOne({email:req.body.email}, {pwd:req.body.newPassword})
                 console.log(userChange)
 
-                res.status(200).send("success")
+                res.status(200).send({msg:"password was changed successfully"})
             
             }else{
                 console.log("Ewo")
-                res.status(400).send({error:"Old password is Incorrect"})
+                res.status(200).send({msg:"Old password is Incorrect"})
             }
         }
     catch(error){

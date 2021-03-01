@@ -6,6 +6,7 @@ import NavBar from '../components/navbar';
 import jsCookie from 'js-cookie';
 import { useDispatch, useSelector } from 'react-redux';
 import {setPriceAction} from '../actions/setPriceAction'
+import { authorize } from 'passport';
 
 function ApprovePage(props){
         const [email, setEmail] = useState(props.location.state.detail)
@@ -56,9 +57,10 @@ function ApprovePage(props){
 
             }
         }, [])
-        const castVotes = async (vote)=>{
-            const data = await Axios.post("/users/castvote", {alerts,vote,email,uniq:props.location.state.uniq})
-            setVoteInfo(data)
+        const Authorize = async (vote)=>{
+            console.log("authorize just executed")
+            const data = await Axios.post("/users/verifier", {id:datas._id})
+            alert(data.data.msg)
         }
         console.log(datas)
 
@@ -111,13 +113,21 @@ function ApprovePage(props){
                            
                             <div className={"card-body"}>
                                
-                                <p className={"card-text "}>
-                                    <span className={"d-block m-2"}><strong>{datas.fname} {datas.lname} - FACE OF NATURAL SCIENCE</strong></span>
-                                    <span className={"d-block m-2"}>Candidates Number:<strong>001</strong></span>
+                                <p className={"card-text list-group"}>
+                                    <span className={"d-block list-group-item"}><strong>{datas.fname} {datas.lname} - FACE OF NATURAL SCIENCE</strong></span>
+                                    <span className={"d-block list-group-item"}>Candidates Number:<strong>001</strong></span>
 
-                                    <center className={"border border-top-0 border-right-0 border-left-0"}><strong>Voting Details</strong></center>
-                                    <span className={"d-block m-2"}>Vote Result: <strong>11.54%</strong></span>
-                                    <span className={"d-block m-2"}>No of Votes:<strong>{datas.vote}</strong></span>
+                                    <center className={"border border-top-0 border-right-0 border-left-0 list-group-item"}><strong>Voting Details</strong></center>
+                                    <span className={"d-block list-group-item"}>Vote Result: <strong>11.54%</strong></span>
+                                    <span className={"d-block list-group-item"}>No of Votes:<strong>{datas.vote}</strong></span>
+
+                                    <fieldset className={"form-group list-group-item"}>
+                                        <textarea className={"form-control"} value={datas.payment} disabled>
+
+                                        </textarea>
+                                    </fieldset>
+
+                                    {datas.verified?null:<button onClick={e=>Authorize()} className={"col-lg-12 btn btn-info m-2"}>Authorize Contestant</button>}
                                 </p>
                             </div>
                         </div>

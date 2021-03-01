@@ -49,7 +49,8 @@ function Authorization(props){
       <div className={"container"}>
       <center><h1 className={"text-info h3"}>All Payment Request</h1></center>
 
-        <div className={"row justify-content-center"}>
+
+        <div className={"row justify-content-center mt-5"}>
             
 
     
@@ -100,7 +101,7 @@ function Authorization(props){
                                        <textarea onChange={e=>setVote(e.target.value)} className={"form-control"} value={vote}></textarea>
                                        </fieldset> 
                                     </li>
-                                    {vote}
+                                    
                                     <li className={"list-group-item"}>
                                         Total Price of vote 
                                         <fieldset className={"form-group"}>

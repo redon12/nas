@@ -1,6 +1,8 @@
 import Axios from 'axios';
+import { fileLoader } from 'ejs';
 import  React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { contyRegAction } from '../actions/contyRegAction';
 import { registerAction } from '../actions/registerAction';
 
@@ -8,8 +10,10 @@ const RegContestant = (props)=>{
     const {loading, userInfo, error} = useSelector(state=>state.loggedIn)
   const dispatch = useDispatch()
     const [profPix, setProfPix] = useState('')
-    const [cPix, setCPix] = useState('');
+    const [cPix, setCPix] = useState('true');
     const [contestId, setContestId] = useState(props.location.state.detail)
+    const [payment, setPayment] = useState('')
+
     
     const submitHandler = async (e)=>{
       console.log("submit was clicked")
@@ -18,26 +22,15 @@ const RegContestant = (props)=>{
         console.log(userInfo.data.dob)
       dispatch(contyRegAction({fname:userInfo.data.fname, lname:userInfo.data.lname, email:userInfo.data.email,
          dept:userInfo.data.dept,
-        level:userInfo.data.level, faculty:userInfo.data.faculty, DOB:userInfo.data.dob,
-         phone:userInfo.data.phone, pics:userInfo.data.pics,contestIn:contestId}))}
-      else{
-        let data = await Axios.post("/users/regcontestant",{
-          fname:userInfo.data.fname,
-           lname:userInfo.data.lname,
-           email:userInfo.data.contestantemail,
-          dept:userInfo.data.contestantdept,
-         level:userInfo.data.contestantlevel,
-          faculty:userInfo.data.contestantfaculty,
-         DOBs:userInfo.data.contestantDOB,
-          phone:userInfo.data.contestantphone, 
-          pics:profPix,
-          contestIn:props.location.state.detail})}
-          props.history.push("/userpanel")
+        level:userInfo.data.level, faculty:userInfo.data.faculty, DOB:userInfo.data.dob,payment,
+         phone:userInfo.data.phone, pics:userInfo.data.pics,contestIn:contestId}))
+        console.log("executed inside if-statement")}
+        props.history.push("/userpanel")
+        console.log("executed inside else-statement")
       
     }
 
        return ( userInfo?<div>
-            {contestId?contestId:"nothing herr"}
           <div className={"container-fluid"}>
             <div className={"row justify-content-center"}>
               <div className={"col-lg-4 col-sm-12 border m-5 shadow rounded"}>
@@ -51,11 +44,34 @@ const RegContestant = (props)=>{
                  <form onSubmit={submitHandler}>
                 
 
-                <fieldset className={"form-group"}>
+                <fieldset className={"form-group shadow p-2"}>
                 
-                  <input onChange={e=>setCPix(e.target.value)} type={"checkbox"} value={"true"} name ={"DOB"} className={""} placeholder={"se your profile picture"} required/>
-                  <label className={"text-dark p-2"}>
-                    Use Your Profile picture for Contest         </label>
+                <label className={"text-dark h6 "}> <input required onChange={e=>setCPix(e.target.value)} type={"checkbox"} value={"true"} name ={"DOB"} className={"mx-2"} placeholder={"se your profile picture"} required/>
+                  Your Account Details will be used for this Registration       
+                  <small className={"text-muted d-block mx-3"}>You can visit your userpanel later to change info's</small>
+                    </label>
+                </fieldset>
+
+                <fieldset className={"form-group"}>
+                  <ul className={"list-group"}>
+                  <center className={"border border-info p-2 m-2 text-info blue-shadow "}><span className={" fas fa-info p-3 ultimate-round bg-info text-light m-1"}></span>Make a deposit to any of the Bank account below, Payment would be verified in a short while, vote validated and added.</center>
+                    
+                    <li className={"list-group-item"}>
+                      Account name:<span className={"text-info"}>Frank Norbert Mba</span>
+                    </li>
+                    <li className={"list-group-item"}>
+                      Bank:<span className={"text-info"}>Guaranty Trust Bank</span>
+                    </li>
+                    <li className={"list-group-item"}>
+                      Account No.:<span className={"text-info"}>0454552828</span>
+                    </li>
+                  </ul>
+                </fieldset>
+
+                <fieldset className={"form-group"}>
+                  <textarea onChange={e=>setPayment(e.target.value)} className={"form-control small"} placeholder={"Paste your Proof of payment here: Debit Alert Sent to your phone"} required>
+
+                  </textarea>
                 </fieldset>
                 
 
@@ -70,8 +86,7 @@ const RegContestant = (props)=>{
                   </small>
                 </fieldset> */}
 
-                
-
+                <p className={"shadow p-2 small"}>Clicking on submit you agree to our <Link to={"/terms"}> Terms {"&"} Conditions.</Link></p>
                <center> <button type = {"submit"} className={"btn btn-info m-4"}>Submit: Reg fee is 5000 NGN</button></center>
                </form>
               </div>
