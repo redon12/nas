@@ -59,7 +59,7 @@ const App = (props)=>{
     <Route path={"/logout"}   component={LogOut}/>
     <Route path={"/admin"}   component={AdminPanel}/>
     <Route path={"/createnewpost"}   component={CreateNewPost}/>
-    <Route path={"/showcontestants"}   component={ShowContestantsPage}/>
+    <Route path={"/#/showcontestants"}   component={ShowContestantsPage}/>
     <Route path={"/votepage"}   component={VotePage}/>
     <Route path={"/contestcreation"}   component={ContestReg}/>
     <Route path={"/regcontestant"}   component={RegContestant}/>
