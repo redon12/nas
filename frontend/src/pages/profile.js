@@ -39,6 +39,8 @@ const Profile = (props)=>{
         console.log(userInfo)
         const image = await Axios.post("/users/uploadimage",formData )
         setUploadedFiles(image.data.uploadFile)
+        alert(image.data.msg)
+        
         console.log(image)
     }
     const ChangePassword = async (e)=>{

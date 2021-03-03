@@ -42,6 +42,7 @@ function Ipage(props){
            
         {loading?<div className={"loading-container"}><div className={"loading"}/></div>:null}
         {error?<p className={"alert alert-danger"}>{error}</p>:null}
+        {props.location.state?<p className={"alert alert-info"}>{props.location.state.msg}</p>:null}
         {props.location.state?<p className={"alert alert-info"}>{props.location.state.detail}</p>:null}
         {console.log(error)}</center>
 

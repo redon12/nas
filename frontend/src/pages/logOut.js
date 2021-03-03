@@ -5,6 +5,9 @@ import { logOutAction } from "../actions/signedOutAction";
 function LogOut(props){
         const isLoggedOut = useSelector(state=>state.loggeddOut)
         const dispatch = useDispatch()
+        
+
+        Cookie.set("reload", {reload:true})
         useEffect(()=>{
             dispatch(logOutAction())
             return ()=>{

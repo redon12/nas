@@ -29,10 +29,11 @@ const SignUpPage=(props)=>{
       }
     }
     return (
+
         <div>
           <div className={"container-fluid"}>
             <div className={"row justify-content-center"}>
-              <div className={"col-lg-4 col-sm-12 border m-5 shadow rounded"}>
+              {loading?<div className={"posit loading-container"}><div className={"loading"}/></div>:<div className={"col-lg-4 col-sm-12 border m-5 shadow rounded"}>
                  <center> <h3 className={'text-muted m-2'}>
                    <span className={"fa fa-user text-info p-3 d-block"}></span>
                    <strong className={""}> Contestant Registration!</strong>
@@ -63,7 +64,7 @@ const SignUpPage=(props)=>{
                 </fieldset>
 
                 <fieldset className={"form-group"}>
-                  <input onChange={e=>setContestantPhone(e.target.value)} name ={"phone"} type={"phone"} className={"form-control"} placeholder={"phone"} required/>
+                  <input onChange={e=>setContestantPhone(e.target.value)} name ={"phone"} value={contestantphone} type={"phone"} className={"form-control"} placeholder={"phone"} required/>
                   <small className={"text-muted"}>
                     Phone Number
                   </small>
@@ -79,28 +80,69 @@ const SignUpPage=(props)=>{
                 </fieldset> */}
                   
                   <fieldset className={"form-group"}>
-                  <input onChange={e=>setContestantDOB(e.target.value)} name ={"email"} type={"date"} className={"form-control"} placeholder={"DOB"} required/>
+                  <input onChange={e=>setContestantDOB(e.target.value)} value={contestantDOB} name ={"email"} type={"date"} className={"form-control"} placeholder={"DOB"} required/>
                   <small className={"text-muted"}>
                     Your Date of Birth
                   </small>
                 </fieldset>
 
                 <fieldset className={"form-group"}>
-                  <input onChange={e=>setContestantDept(e.target.value)} name ={"email"} type={"text"} className={"form-control"} placeholder={"Department"} required/>
+                  <select onChange={e=>setContestantDept(e.target.value)} value={contestantdept} name ={"email"} type={"text"} className={"form-control"} placeholder={"Faculty"} required>
+                  <option>Select department</option>
+                    
+                    <option>Computer Science</option>
+                    <option>MicroBiology</option>
+                    <option>BioChemistry</option>
+                    <option>Nursing Science</option>
+                    <option>Idustrial Chemistry</option>
+                    <option>Optometry</option>
+                    <option>Public Health</option>
+                    <option>Anatomy</option>
+                    <option>Physiology</option>
+                    <option>Medical Laboratory Science</option>
+
+                    <option>Pharmacy</option>
+                    <option>Medicine</option>
+
+
+                    
+                    </select>
                   <small className={"text-muted"}>
                     your department
                   </small>
                 </fieldset>
 
                 <fieldset className={"form-group"}>
-                  <input onChange={e=>setContestantLevel(e.target.value)} name ={"email"} type={"text"} className={"form-control"} placeholder={"Level"} required/>
+                  <select onChange={e=>setContestantLevel(e.target.value)} value={contestantlevel} name ={"email"} type={"text"} className={"form-control"} placeholder={"Faculty"} required>
+                  <option>Select Level</option>
+                    <option>100</option>
+                    <option>200</option>
+                    <option>300</option>
+                    <option>400</option>
+                    <option>500</option>
+                    <option>600</option>
+
+
+
+                    
+                    </select>
                   <small className={"text-muted"}>
                     Your Level
                   </small>
                 </fieldset>
 
                 <fieldset className={"form-group"}>
-                  <input onChange={e=>setContestantFaculty(e.target.value)} name ={"email"} type={"text"} className={"form-control"} placeholder={"Faculty"} required/>
+                  <select onChange={e=>setContestantFaculty(e.target.value)} value={contestantfaculty} name ={"email"} type={"text"} className={"form-control"} placeholder={"Faculty"} required>
+                  <option>Select Faculty</option>
+                    
+                    <option>Natural Science</option>
+                    <option>Health Science</option>
+                    <option>Pharmacy</option>
+                    <option>Medicine</option>
+
+
+                    
+                    </select>
                   <small className={"text-muted"}>
                     Your Faculty
                   </small>
@@ -112,7 +154,7 @@ const SignUpPage=(props)=>{
                     Type in Password
                   </small>
                 </fieldset>
-
+                {regInfo?props.history.push({path:"/signin", state:{msg:"Your Registration was Successful"}}):null}
                 <fieldset className={"form-group"}>
                   <input onChange={e=>setRePassword(e.target.value)} name ={"rePassword"} type={"password"} className={"form-control"} placeholder={"Re-Enter Password"} required/>
                   <small className={"text-muted"}>
@@ -120,11 +162,11 @@ const SignUpPage=(props)=>{
                   </small>
                 </fieldset>
 
-               <center> <button type = {"submit"} className={"btn btn-info m-4"}>Submit</button></center>
+               <center> <button type = {"submit"} className={"btn btn-info m-4"}>{loading?<div className={"posit loading-container"}><div className={"loading"}/></div>:<span>{"Submit"}</span>}</button></center>
                 <Link className={"d-block"} to={'/signin'}>Already have an Account Sign in</Link>
 
                </form>
-              </div>
+              </div>}
             </div>
           </div>
         </div>

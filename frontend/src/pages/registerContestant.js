@@ -22,11 +22,13 @@ const RegContestant = (props)=>{
         console.log(userInfo.data.dob)
       dispatch(contyRegAction({fname:userInfo.data.fname, lname:userInfo.data.lname, email:userInfo.data.email,
          dept:userInfo.data.dept,
-        level:userInfo.data.level, faculty:userInfo.data.faculty, DOB:userInfo.data.dob,payment,
+        level:userInfo.data.level, faculty:userInfo.data.faculty, DOB:userInfo.data.dob, payment,
          phone:userInfo.data.phone, pics:userInfo.data.pics,contestIn:contestId}))
         console.log("executed inside if-statement")}
         props.history.push("/userpanel")
-        console.log("executed inside else-statement")
+        console.log(payment)
+
+        console.log("executed inside else-statement${payment}")
       
     }
 

@@ -9,6 +9,7 @@ import Axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { contestRegAction } from '../actions/displayContestAction';
 import { usePaystackPayment } from 'react-paystack';
+import cookie from 'js-cookie';
 const openButton = ()=>{
     document.querySelector('.side-bar').classList.add('open')
 }
@@ -53,6 +54,13 @@ const Blog = (props)=>{
     const {loading,displayInfo, error} = useSelector(state => state.displayContest)
 
     const dispatch = useDispatch()
+    const resl = cookie.getJSON("reload").reload
+
+    cookie.set("reload", {reload:false})
+
+    if(resl){
+        window.location.reload()
+    }
 
     if (displayInfo){
         console.log("there is something in display")

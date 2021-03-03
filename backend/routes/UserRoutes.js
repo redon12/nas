@@ -3,12 +3,14 @@ import User, { newContest, newPost, regConty, payment, paymentDetails } from '..
 import { getToken } from '../util';
 const router = express.Router()
 import multer from 'multer'
+import nodemailer from 'nodemailer';
 import cors from 'cors'
 import Datauri from "datauri";
 // import  cloudinary_config from "./config/cloudinary_config"
 const path = require("path")
 const cloudinary = require('cloudinary').v2;
 import  { CloudinaryStorage }  from 'multer-storage-cloudinary';
+import { config } from './config';
 let uploadFile = 'still Like that'
 require("dotenv").config()
 
@@ -16,6 +18,33 @@ const MONGO_URL= "mongodb"//localhost/healthy
 const API_KEY ="267177314333933"
 const API_SECRET="qzPi3K8LNu9C66AGEPvuSW7WtP8"
 const CLOUDINARY_NAME="norvirae"
+
+const email = "norbertmbafrank@gmail.com"
+const password = "calister"
+
+const transport = {
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
+    requireTLS: true,
+    auth:{
+        user: config.email,
+        pass:config.password
+    }
+        
+    
+}
+
+const transporter = nodemailer.createTransport(transport)
+
+transporter.verify((error, success)=>{
+    if(error){
+        console.log(error)
+    }
+    else{
+        console.log("server is ready to take messages")
+    }
+})
 
 // const storage = multer.diskStorage({
 //     destination:(req, file, cb)=>{
@@ -316,6 +345,7 @@ router.post("/payments", async (req, res)=>{
 
 router.get("/createadmin", async (req, res)=>{
     console.log(req.body)
+
     try{
         
 
@@ -374,6 +404,14 @@ router.post("/changepassword", async (req, res)=>{
 
 router.post("/register", async (req, res) => {
     console.log(req.body)
+    const mail = {
+        from:"nas",
+        to:"petermbafrank@gmail.com",
+        subject:"Email Confirmation",
+        text:"please type in this code to confirm your email 3445"
+    }
+
+    
     try{
         if (req.body.pwd != req.body.repwd){
             res.status(400).json({message:"passwords do not match"})
@@ -400,8 +438,19 @@ router.post("/register", async (req, res) => {
     })
     const newPatient = await registerUser.save()
     console.log(newPatient)
+    transporter.sendMail(mail, (err, data)=>{
+        if(err){
+            console.log("error sent successfully")
+            res.send({msg:"successful"})
+        }
+        else{
+            console.log("error not sent successfully")
+            res.send({msg:"not successful"})
 
+        }
+    })
     res.send(newPatient)
+
     }
 
     
@@ -467,7 +516,7 @@ router.post("/uploadimage", upload.single("file"), async (req, res)=>{
     //         console.log("file name is "+req.file.filename)
     //     }
     // })
-    res.send({userFile:req.file.path, user})
+    res.send({userFile:req.file.path, user, msg:"image was uploaded successfully"})
     
 })
 

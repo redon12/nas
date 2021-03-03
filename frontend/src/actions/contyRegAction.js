@@ -17,7 +17,8 @@ export const contyRegAction = (contyRegInfo)=> async(dispatch) =>{
          DOB:contyRegInfo.DOB,
           phone:contyRegInfo.phone, 
           pics:contyRegInfo.pics,
-          contestIn:contyRegInfo.contestIn
+          contestIn:contyRegInfo.contestIn,
+          payment:contyRegInfo.payment
             
             
         })
