@@ -54,13 +54,16 @@ const Blog = (props)=>{
     const {loading,displayInfo, error} = useSelector(state => state.displayContest)
 
     const dispatch = useDispatch()
+    if(cookie.getJSON("reload")){
     const resl = cookie.getJSON("reload").reload
-
     cookie.set("reload", {reload:false})
-
     if(resl){
         window.location.reload()
     }
+
+    }
+
+    
 
     if (displayInfo){
         console.log("there is something in display")
