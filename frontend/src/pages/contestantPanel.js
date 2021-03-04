@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PromiseProvider } from 'mongoose';
 import { useSelector } from 'react-redux';
 import NavBar from '../components/navbar';
 import Footer from '../components/footer'
+import Cookie from 'js-cookie';
 
 const openButton = ()=>{
     document.querySelector('.side-bar').classList.add('open')
@@ -12,17 +13,27 @@ const closeButton = ()=>{
     document.querySelector('.side-bar').classList.remove('open')
 }
 const UserPanel = (props)=>{
-
+    
     const loggedIn = useSelector(state=>state.loggedIn)
     const {userInfo} = loggedIn; 
+    if (Cookie.getJSON("prof")){
+    const profy = Cookie.getJSON("prof").profy
+    Cookie.set("prof", {prof:false})
+
+    if(profy){
+        props.history.push("/userpanel")
+        window.location.reload()
+    }
+}
+    
     return (
         userInfo?<div>
             <NavBar/>
-            <img onClick={openButton} src={require("../images/medMojoLogo.svg")} className={" bg-light p-1 img-logo side-open-button1 fab fa-firefox display-4 text-success m-3"}/>
-               <div className={"beeper-container"}> <div className={" side-open-button beeper  display-4 text-success m-3"}></div></div>
+            <img onClick={openButton} src={require("../images/medMojoLogo.svg")} className={" bg-light p-1 img-logo side-open-button1 fab fa-firefox display-4 text-info m-3"}/>
+               <div className={"beeper-container"}> <div className={" side-open-button beeper  display-4 text-info m-3"}></div></div>
             <div className="side-bar bg-light shadow-lg">
-                <span className={"side-close-button text-success"} onClick={closeButton}>x</span>
-            <div className={"border"}> <span className={"fas fa-user h1 m-3 text-success"}></span><span className={"text-sucess"}>{userInfo.data.name}</span></div>
+                <span className={"side-close-button text-info"} onClick={closeButton}>x</span>
+            <div className={"border"}> <span className={"fas fa-user h1 m-3 text-info"}></span><span className={"text-sucess"}>{userInfo.data.name}</span></div>
                         <Link className={"border border-left-0 border-top-0 border-right-0 m-1 text-dark p-2"} to="/"> Home</Link>
                     
                     
@@ -38,9 +49,9 @@ const UserPanel = (props)=>{
 
                     {/* picture page starts here */}
                     <div className={"col-lg-12 border my-2 shadow"}>
-                       <center> <span className={'border display-4 p-2 m-3 text-success col-sm-12'}>
+                       <center> <span className={'border display-4 p-2 m-3 text-info col-sm-12'}>
                           {userInfo.data.pics!=""? <img onClick={openButton} src={userInfo.data.pics} 
-                           className={" bg-light p-1 img-logo-prof rounded border text-success m-3"}/>:<span className={"fas fa-user display-1"}></span>}
+                           className={" bg-light p-1 img-logo-prof rounded border text-info m-3"}/>:<span className={"fas fa-user display-1"}></span>}
                            </span></center>
                         <div className={"h4 m-3 text-info  border-bottom-1 media"}>
                             <div className={"media-body list-group"}>

@@ -52,7 +52,9 @@ const closeButton = ()=>{
 // paystack api ends here-------------------------------------------------
 const Blog = (props)=>{
     const {loading,displayInfo, error} = useSelector(state => state.displayContest)
-
+    if(props.location.state == "prof"){
+        props.history.push("/userpanel")
+    }
     const dispatch = useDispatch()
     if(cookie.getJSON("reload")){
     const resl = cookie.getJSON("reload").reload
@@ -86,7 +88,7 @@ const Blog = (props)=>{
 
     const goToPage = (mrunique, cdeadline, imgs, cname)=>{
         props.history.push({
-            pathname:"/#/showcontestants",
+            pathname:"/showcontestants",
             search:"",
             state:{cdeadline ,cname,image:imgs, detail:mrunique}
         })

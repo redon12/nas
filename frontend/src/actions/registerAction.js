@@ -22,6 +22,6 @@ export const registerAction = (regInfo)=> async(dispatch) =>{
     }catch(error){
         console.log("An error Occured")
         console.log(error)
-        dispatch({type:REGISTER_FAIL, payload:error.response?error.response.data.message:error.response})
+        dispatch({type:REGISTER_FAIL, payload:error.response?error.response.data.message:"this was not successful"})
     }
 }

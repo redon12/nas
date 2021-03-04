@@ -8,7 +8,7 @@ import jsCookie from 'js-cookie';
 import ReactCrop from 'react-image-crop';
 function ShowContestantsPage(props){
 
-    
+    const [totalVote, setTotalVote] = useState(0)
     const [datas, setDatas] = useState([])
     const getContestants = async (mrUnique)=>{
         // console.log(mrUnique)
@@ -21,7 +21,9 @@ function ShowContestantsPage(props){
         console.log(data)
         console.log(pageUnique.mrUnique)
          setDatas(data)
+         
     }
+    
     useEffect(()=>{
         const contestants = getContestants(props.location.state.detail)
         return ()=>{
@@ -46,13 +48,20 @@ function ShowContestantsPage(props){
         setHours(Math.floor(hours))
         setMinutes(Math.floor(minutes))
         setSeconds(Math.floor(seconds))
-        console.log(deadline)
+        
         setDatis(d.toLocaleTimeString())
     }
 
     setInterval(dateDef, 1000)
 
     const pageUnique = jsCookie.getJSON("pagecon")
+    // let tots = 0
+
+    // for (let count=0; count < datas.length; count++){
+    //     tots = tots + Number(datas.data.vote[count])
+        // console.log(tots)
+    //  }
+    //  setTotalVote(tots)
     
     return (
         <div>
@@ -119,18 +128,22 @@ function ShowContestantsPage(props){
                         <div className={"row justify-content-center"}>
                         {/* card starts here */}
                         {datas.data||datas.data==[]?datas.data.map(conts=>{
+                            
+
                         return(
                            conts.verified? <div onClick={e=>{props.history.push({pathname:"/votepage", state:{detail:conts.contestantemail, uniq:conts.contestIn}})}} className={"card col-lg-3  mt-5 m-1 pointit"}>
-                            <img style={{width:300,height:300}} class={"col-lg-12 w-100 border rounded m-2 p-2"} src={conts.constestantpics}/>
+                            <div className={"d-block"}><img style={{width:300,height:300}} class={"col-lg-12 w-100 border rounded m-2 p-2"} src={conts.constestantpics}/></div>
                             <div className={"card-body"}>
                                 <p className={"card-text list-group"}>
                                     <span className={"d-block list-group-item"}><strong>{conts.lname +" "+conts.fname} </strong></span>
                                     <span className={"d-block list-group-item"}>Candidates Number:<strong>001</strong></span>
                                     <span className={"d-block list-group-item"}>Vote Result: <strong>11.54%</strong></span>
                                     <span className={"d-block list-group-item"}>No of Votes:<strong>{conts.vote}</strong></span>
-                                    <center><button 
+                                    <span className={"d-block list-group-item"}>Total Votes:<strong>{totalVote}</strong></span>
+
+                                    <center><button
                                     onClick={e=>{props.history.push({pathname:"/votepage", state:{detail:conts.contestantemail}})}}
-                                    className={"btn btn-success px-5 m-2"}>Vote</button></center>
+                                    className={"btn btn-info px-5 m-2"}>Vote</button></center>
                                 </p>
                             </div>
                         </div>:null

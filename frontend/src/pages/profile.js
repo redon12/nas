@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PromiseProvider } from 'mongoose';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import NavBar from '../components/navbar';
 import Footer from '../components/footer'
 import { fileLoader } from 'ejs';
 import Axios from 'axios';
+import { loggeddIn } from '../actions/signedInAction';
+import Cookie from 'js-cookie'
 
 const openButton = ()=>{
     document.querySelector('.side-bar').classList.add('open')
@@ -14,6 +16,8 @@ const closeButton = ()=>{
     document.querySelector('.side-bar').classList.remove('open')
 }
 const Profile = (props)=>{
+
+    const dispatch = useDispatch()
     const loggedIn = useSelector(state=>state.loggedIn)
     const {userInfo} = loggedIn; 
     const [img, setImg] = useState('')
@@ -21,6 +25,9 @@ const Profile = (props)=>{
     const [oldPassword,setOldPassword] = useState('')
     const [warning, setWarning] = useState('')
     const [confirmNewPassword,setConfirmNewPassword] = useState('')
+    const [loading, setLoads] = useState(false)
+    
+    
 
     // useEffect(()=>{
     //     setWarning("")
@@ -28,6 +35,7 @@ const Profile = (props)=>{
 
     //     }
     // },[warning])
+   
     
     const [uploadedFiles, setUploadedFiles] = useState(null)
     const SubmitPics = async (e) =>{
@@ -37,9 +45,16 @@ const Profile = (props)=>{
         formData.append("email", userInfo.data.email)
         // console.log(img)
         console.log(userInfo)
+        setLoads(true)
         const image = await Axios.post("/users/uploadimage",formData )
+        setLoads(false)
         setUploadedFiles(image.data.uploadFile)
+        dispatch(loggeddIn(userInfo.data.email, userInfo.data.pwd))
+
         alert(image.data.msg)
+        Cookie.set("prof", {prof:true})
+        props.history.push({pathname:"/userpanel", state:"prof"})
+
         
         console.log(image)
     }
@@ -88,7 +103,7 @@ const Profile = (props)=>{
                         </fieldset>
 
                         <fieldset className={"form-group m-3"}>
-                            <button type={"submit"} className={"btn btn-info col-lg-12"}>Upload Profile Picture</button>
+                           {loading?<button type={"submit"} className={"btn btn-info col-lg-12"}disabled>loading...</button>:<button type={"submit"} className={"btn btn-info col-lg-12"}>Upload Profile Picture</button>} 
                         </fieldset>
                     </form>
 

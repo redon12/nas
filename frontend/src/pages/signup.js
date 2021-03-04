@@ -26,6 +26,7 @@ const SignUpPage=(props)=>{
         repwd:rePassword, contestantlevel, contestantdept,contestantDOB}))
       if (regInfo){
       props.history.push("/signin")
+      alert("registration was successful")
       }
     }
     return (
@@ -94,7 +95,7 @@ const SignUpPage=(props)=>{
                     <option>MicroBiology</option>
                     <option>BioChemistry</option>
                     <option>Nursing Science</option>
-                    <option>Idustrial Chemistry</option>
+                    <option>Industrial Chemistry</option>
                     <option>Optometry</option>
                     <option>Public Health</option>
                     <option>Anatomy</option>

@@ -119,7 +119,7 @@ function VotePage(props){
                         {/* card starts here */}
                         
                         <div className={"card col-lg-6 shadow mt-2 m-1"}>
-                            <img className={"col-lg-6 w-100 p-2 m-2 rounded border"} src={datas.constestantpics}/>
+                           <center className={"d-block"}><img className={"col-lg-8 w-100 p-2 m-2 rounded border"} src={datas.constestantpics}/></center>
                             <div className={"card-body"}>
                                 <p><strong className={"d-block mb-1"}>
                                     Vote Form
