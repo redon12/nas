@@ -88,7 +88,7 @@ const Blog = (props)=>{
 
     const goToPage = (mrunique, cdeadline, imgs, cname)=>{
         props.history.push({
-            pathname:"/showcontestants",
+            pathname:"/api/showcontestants",
             search:"",
             state:{cdeadline ,cname,image:imgs, detail:mrunique}
         })

@@ -56,6 +56,10 @@ server.get("/", (req,res)=>{
     res.sendFile(dirss+"/index.html")
 })
 
+server.get("/api/*", (req,res)=>{
+    res.sendFile(dirss+"/index.html")
+})
+
 
 // sdnmsbcdcccccccc
 
