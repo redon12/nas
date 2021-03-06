@@ -132,12 +132,12 @@ function ShowContestantsPage(props){
 
                         return(
                            conts.verified? <div onClick={e=>{props.history.push({pathname:"/api/votepage/"+conts._id, state:{detail:conts.contestantemail, uniq:conts.contestIn}})}} className={"card col-lg-3  mt-5 m-1 pointit"}>
-                            <div className={"d-block"}><img style={{width:300,height:300}} class={"col-lg-12 w-100 border rounded m-2 p-2"} src={conts.constestantpics}/></div>
+                            <div className={"d-block"}><img class={"col-lg-12 border rounded m-2 p-2"} src={conts.constestantpics}/></div>
                             <div className={"card-body"}>
                                 <p className={"card-text list-group"}>
                                     <span className={"d-block list-group-item"}><strong>{conts.lname +" "+conts.fname} </strong></span>
                                     <span className={"d-block list-group-item"}>Candidates Number:<strong>{conts.contno}</strong></span>
-                                    <span className={"d-block list-group-item"}>Vote Result: <strong>11.54%</strong></span>
+                                    <span className={"d-block list-group-item"}>Vote Result: <strong>Pending..</strong></span>
                                     <span className={"d-block list-group-item"}>No of Votes:<strong>{conts.vote}</strong></span>
                                     <span className={"d-block list-group-item"}>Total Votes:<strong>{totalVote}</strong></span>
 
