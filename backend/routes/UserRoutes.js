@@ -19,32 +19,32 @@ const API_KEY ="267177314333933"
 const API_SECRET="qzPi3K8LNu9C66AGEPvuSW7WtP8"
 const CLOUDINARY_NAME="norvirae"
 
-const email = "norbertmbafrank@gmail.com"
-const password = "calister"
+// const email = "norbertmbafrank@gmail.com"
+// const password = "calister"
 
-const transport = {
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: false,
-    requireTLS: true,
-    auth:{
-        user: config.email,
-        pass:config.password
-    }
+// const transport = {
+//     host: 'smtp.gmail.com',
+//     port: 587,
+//     secure: false,
+//     requireTLS: true,
+//     auth:{
+//         user: config.email,
+//         pass:config.password
+//     }
         
     
-}
+// }
 
-const transporter = nodemailer.createTransport(transport)
+// const transporter = nodemailer.createTransport(transport)
 
-transporter.verify((error, success)=>{
-    if(error){
-        console.log(error)
-    }
-    else{
-        console.log("server is ready to take messages")
-    }
-})
+// transporter.verify((error, success)=>{
+//     if(error){
+//         console.log(error)
+//     }
+//     else{
+//         console.log("server is ready to take messages")
+//     }
+// })
 
 // const storage = multer.diskStorage({
 //     destination:(req, file, cb)=>{
@@ -466,12 +466,12 @@ router.post("/changepassword", async (req, res)=>{
 
 router.post("/register", async (req, res) => {
     console.log(req.body)
-    const mail = {
-        from:"nas",
-        to:"petermbafrank@gmail.com",
-        subject:"Email Confirmation",
-        text:"please type in this code to confirm your email 3445"
-    }
+    // const mail = {
+    //     from:"nas",
+    //     to:"petermbafrank@gmail.com",
+    //     subject:"Email Confirmation",
+    //     text:"please type in this code to confirm your email 3445"
+    // }
 
     
     try{
@@ -500,17 +500,17 @@ router.post("/register", async (req, res) => {
     })
     const newPatient = await registerUser.save()
     console.log(newPatient)
-    transporter.sendMail(mail, (err, data)=>{
-        if(err){
-            console.log("error sent successfully")
-            res.send({msg:"successful"})
-        }
-        else{
-            console.log("error not sent successfully")
-            res.send({msg:"not successful"})
+    // transporter.sendMail(mail, (err, data)=>{
+    //     if(err){
+    //         console.log("error sent successfully")
+    //         res.send({msg:"successful"})
+    //     }
+    //     else{
+    //         console.log("error not sent successfully")
+    //         res.send({msg:"not successful"})
 
-        }
-    })
+    //     }
+    // })
     res.send(newPatient)
 
     }
