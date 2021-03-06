@@ -18,7 +18,7 @@ const ContestReg = (props)=>{
       
       dispatch(contestRegAction({cimage, cvoteprice, cdeadline, cname}))
       if (regInfo){
-      props.history.push("/admin")
+      props.history.push("/api/admin")
       }
     }
     return (

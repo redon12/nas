@@ -21,7 +21,7 @@ const UserPanel = (props)=>{
     Cookie.set("prof", {prof:false})
 
     if(profy){
-        props.history.push("/userpanel")
+        props.history.push("/api/userpanel")
         window.location.reload()
     }
 }
@@ -38,7 +38,7 @@ const UserPanel = (props)=>{
                     
                     
                         <Link className={"border border-top-0 border-left-0 border-right-0 m-1 text-dark p-2"} to="/"> See Ongoing contest</Link>
-                      {userInfo.data.isAdmin?  <Link className={"border border-top-0 border-left-0 border-right-0 m-1 text-dark p-2"} to="/admin"> AdminPanel</Link>:null}
+                      {userInfo.data.isAdmin?  <Link className={"border border-top-0 border-left-0 border-right-0 m-1 text-dark p-2"} to="/api/admin"> AdminPanel</Link>:null}
 
                     
                    
@@ -70,7 +70,7 @@ const UserPanel = (props)=>{
                     </div>
                     {/* Picture page ends here */}
                         
-                    <div onClick={e=>props.history.push("/profile")} className={"card pointit col-lg-3 m-1"}>
+                    <div onClick={e=>props.history.push("/api/profile")} className={"card pointit col-lg-3 m-1"}>
                         <div className={"card-body"}>
                             <p className={'text-center h4 text-info m-2'}>
                             <span className={"fas fa-hospital-alt m-1"}>  </span> Profile

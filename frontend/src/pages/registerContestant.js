@@ -25,7 +25,8 @@ const RegContestant = (props)=>{
         level:userInfo.data.level, faculty:userInfo.data.faculty, DOB:userInfo.data.dob, payment,
          phone:userInfo.data.phone, pics:userInfo.data.pics,contestIn:contestId}))
         console.log("executed inside if-statement")}
-        props.history.push("/userpanel")
+        alert("Registration was successful")
+        props.history.push("/api/userpanel")
         console.log(payment)
 
         console.log("executed inside else-statement${payment}")
@@ -94,7 +95,7 @@ const RegContestant = (props)=>{
               </div>
             </div>
           </div>
-        </div>:<div>{props.history.push({pathname:"/signin", state:{detail:"You have to Login! to Register"}})}</div>
+        </div>:<div>{props.history.push({pathname:"/api/signin", state:{detail:"You have to Login! to Register"}})}</div>
     )
 }
 

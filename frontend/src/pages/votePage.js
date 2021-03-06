@@ -43,7 +43,7 @@ function VotePage(props){
             const ems = jsCookie.getJSON("userCont").emails
             setEmail(ems)
             
-            const data = await Axios.post("/users/fetchcontestantra",{email, uniq:props.location.state.uniq} )
+            const data = await Axios.post("/users/fetchcontestantra",{id:props.match.params.id} )
 
             console.log("this shows the email:")
             console.log(email)
@@ -98,7 +98,7 @@ function VotePage(props){
                                 <strong className={"d-block mb-3 text-info"}>FACE OF NATURAL SCIENCE CONTEST, MADONNA UNIVERSITY</strong>
                                 <span className={"d-block mb-3"}><strong>Type:</strong> Face</span>
                                 <span className={"d-block mb-3"}><strong>Time:</strong>02 months: 02 days: 23 hours: 40 minutes: 30 seconds</span>
-                                <span className={"d-block mb-3"}><strong>Contest Registration is Ongoing </strong><Link to={"/regcontestant"}>Register For Contest Now!</Link></span>
+                                <span className={"d-block mb-3"}><strong>Contest Registration is Ongoing </strong><Link to={"/api/regcontestant"}>Register For Contest Now!</Link></span>
                                 
                                 <span className={"d-block mb-3"}><strong>Share Contestants</strong></span>
                                 <p>
@@ -123,6 +123,7 @@ function VotePage(props){
                             <div className={"card-body"}>
                                 <p><strong className={"d-block mb-1"}>
                                     Vote Form
+                                    
                                 </strong>
                                 Ensure that the Contestant is who you actually want to vote. No refund or reversal of vote if you choose
                                 a wrong Contestant.</p>

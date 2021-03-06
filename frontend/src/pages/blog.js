@@ -53,7 +53,7 @@ const closeButton = ()=>{
 const Blog = (props)=>{
     const {loading,displayInfo, error} = useSelector(state => state.displayContest)
     if(props.location.state == "prof"){
-        props.history.push("/userpanel")
+        props.history.push("/api/userpanel")
     }
     const dispatch = useDispatch()
     if(cookie.getJSON("reload")){
@@ -128,6 +128,44 @@ const Blog = (props)=>{
                     <div className={"col-lg-12"}>
                         <div className={"row justify-content-center"}>
 
+                            {/* Test Carousel starts */}
+
+                            {/* <div id={"myCarousel"} className={"carousel slide"} data-ride={"carousel"}> */}
+                                {/* <!-- Indicators --> */}
+                                {/* <ol className={"carousel-indicators"}>
+                                    <li data-target={"#myCarousel"} data-slide-to={"0"} className={"active"}></li>
+                                    <li data-target={"#myCarousel"} data-slide-to={"1"}></li>
+                                    <li data-target={"#myCarousel"} data-slide-to={"2"}></li>
+                                </ol> */}
+
+                                {/* <!-- Wrapper for slides --> */}
+                                {/* <div className={"carousel-inner"}>
+                                    <div className={"item active"}>
+                                        <img src={require("../images/jaycloud1.jpg")} alt={"Los Angeles"}/>
+                                    </div>
+
+                                    <div className={"item"}>
+                                        <img src={require("../images/nasBannerWithArtist.jpg")} alt={"Chicago"}/>
+                                    </div>
+
+                                    <div className={"item"}>
+                                        <img src={require("../images/nasWeekInvite.jpg")} alt={"New York"}/>
+                                    </div>
+                                </div> */}
+
+                                {/* <!-- Left and right controls --> */}
+                                {/* <a className={"left carousel-control"} href={"#myCarousel"} data-slide={"prev"}>
+                                    <span className={"glyphicon glyphicon-chevron-left"}></span>
+                                    <span className={"sr-only"}>Previous</span>
+                                </a>
+                                <a className={"right carousel-control"} href={"#myCarousel"} data-slide={"next"}>
+                                    <span className={"glyphicon glyphicon-chevron-right"}></span>
+                                    <span className={"sr-only"}>Next</span>
+                                </a>
+                                </div> */}
+
+                            {/* Test Carousel ends */}
+
                         {/* carousel starts here */}
                         <div id={"slider3"} className={"col-lg-8 mt-2 carousel slide mb-5"} data-ride={"carousel"}>
                             <ol className={"carousel-indicators"}>
@@ -138,7 +176,7 @@ const Blog = (props)=>{
                                     data-slide-to={"1"}>
                                 </li>
                                 <li data-target={"#slider3"}
-                                    data-slide-to={"2"}> 
+                                    data-slide-to={"2"}>    
                                 </li>
                                
 
@@ -146,15 +184,15 @@ const Blog = (props)=>{
                             <div className={"carousel-inner"} role={"listbox"}>
                                 <div className={"carousel-item active"}>
                                     <img style = {{width:600,height:400}} className={"d-block img-fluid"} 
-                                        src={require("../images/jaycloud1.jpg")}/>
+                                        src={require("../images/img1.jpg")}/>
                                 </div>
 
-                                <div className={"carousel-item active"}>
+                                <div className={"carousel-item "}>
                                     <img style = {{width:600,height:400}} className={"d-block img-fluid"} 
                                         src={require("../images/nasBannerWithArtist.jpg")}/>
                                 </div>
 
-                                <div className={"carousel-item active"}>
+                                <div className={"carousel-item "}>
                                     <img style = {{width:600,height:400}} className={"d-block img-fluid"} 
                                         src={require("../images/nasWeekInvite.jpg")}/>
                                 </div>
@@ -174,10 +212,12 @@ const Blog = (props)=>{
                                     </span>
                                 </a>
                         </div>
+
+                        
                         {/* carousel ends here */}
                         </div>
                         
-                    <div className={"row justify-content-center my-3 p-2 border border-bottom-0 border-right-0 border-left-0"}>
+                    <div className={"row justify-content-center my-3 p-2 blue-shadow border border-bottom-0 border-right-0 border-left-0"}>
                     
                     {displayInfo?displayInfo.data.map((conts)=>{
                         
@@ -200,6 +240,7 @@ const Blog = (props)=>{
                             <button className={"btn btn-info col-lg-12"}>View More</button>
                     </div>
                 </div>
+                
                 {/* card ends here */}
                         
                     }):null}
@@ -209,7 +250,7 @@ const Blog = (props)=>{
                     
                    
                 </div>
-                <p className={"h4 m-3 border p-5 py-5 shadow text-info"}>SOC Board Members</p>
+                <p className={"h4 m-3 border p-5 py-5 blue-shadow shadow text-info"}>SLOC Board Members</p>
 
                 <div className={"row justify-content-center"}>
                     {/* begining of card */}
@@ -223,7 +264,7 @@ const Blog = (props)=>{
 
                                 <ul className={"list-group"}>
                                     <li className={"list-group-item h6"}>
-                                        Title - SOC Chairman
+                                        Title - SLOC Chairman
                                     </li>
                                     <li className={"list-group-item h6"}>
                                         Dept - Computer Science
@@ -255,19 +296,68 @@ const Blog = (props)=>{
                     </div>
                     {/* end of card */}
 
-                    </div>
-            </div>
-
-            <p className={"h4 m-3 border p-5 py-5 shadow text-info"}>Sponsors</p>
-
-
-            <div className={"row justify-content-center"}>
                     {/* begining of card */}
-                        <div className={"pointit card border col-lg-6 m-1"}>
-                        <img className={"image-fluid "} src={require("../images/BIG.jpg")} />
+                    <div className={"pointit card border col-lg-6 m-1"}>
+                        <img className={"image-fluid col-lg-12"} src={require("../images/NobMedia.jpg")} />
                         <div className={"card-body"}>
                             <p className={"card-text"}>
 
+                               <center> <strong>Frank Norbert Mba *Virus*</strong></center>
+                                
+                            </p>
+
+                                <ul className={"list-group"}>
+                                    <li className={"list-group-item h6"}>
+                                        Title - Media Editor/ web Developer
+                                    </li>
+                                    <li className={"list-group-item h6"}>
+                                        Dept - Computer Science
+                                    </li>
+                                </ul>
+                        </div>
+                    </div>
+                    {/* end of card */}
+
+                    </div>
+            </div>
+
+            <p className={"h4 m-3 border border-info p-5 py-5 blue-shadow shadow text-info"}>Sponsors</p>
+
+
+            <div className={"row justify-content-center"}>
+                {/* begining of card */}
+                <div className={"pointit card border col-lg-8 m-1"}>
+                        <img className={"image-fluid col-lg-12 "} src={require("../images/img4.jpg")} />
+                        <div className={"card-body"}>
+                            <p className={"card-text"}>
+
+                               <center> <strong>Chidera</strong></center>
+                                
+                            </p>
+
+                                <ul className={"list-group"}>
+                                    <li className={"list-group-item h6"}>
+                                        Title - Grand Sponsor
+                                    </li>
+                                    <li className={"list-group-item h6"}>
+                                        Dept : Medical Laboratory Science
+                                    </li>
+                                    <li className={"list-group-item h6"}>
+                                        Level : Final Year
+                                    </li>
+                                </ul>
+                        </div>
+                    </div>
+                    {/* end of card */}
+                    {/* begining of card */}
+                        <div className={"pointit card border col-sm-12 col-lg-4 m-1"}>
+                        <center><div className={"d-block"}>
+                        
+                        <img className={"image-fluid col-md-6 col-lg-12"} src={require("../images/BIG.jpg")} />
+                        </div></center>
+                        <div className={"card-body"}>
+                            <p className={"card-text"}>
+                            Computer Science
                                <center> <strong>B.I.G.</strong></center>
                                 
                             </p>
@@ -288,8 +378,10 @@ const Blog = (props)=>{
                     {/* end of card */}
 
                      {/* begining of card */}
-                     <div className={"pointit card border col-lg-6 m-1"}>
+                     <div className={"pointit card border col-md-6 col-sm-6 col-lg-4 m-1"}>
+                         <div className={"d-block"}>
                         <img className={"image-fluid col-lg-12"} src={require("../images/KizitoSponsor.jpg")} />
+                        </div>
                         <div className={"card-body"}>
                             <p className={"card-text"}>
 
@@ -314,13 +406,17 @@ const Blog = (props)=>{
 
                     </div>
             
-                    <p className={"h4 m-3 border p-5 py-5 shadow text-info"}>Artists</p>
+                    <p className={"h4 m-3 border p-5 py-5 shadow blue-shadow text-info"}>Artists</p>
 
             
             <div className={"row justify-content-center"}>
         {/* begining of card */}
-            <div className={"pointit card border col-lg-6 m-1"}>
-            <img className={"image-fluid "} src={require("../images/jaycloud1.jpg")} />
+            <div className={"pointit card border col-lg-4 m-1"}>
+
+            <div className={"d-block"}>
+            <img className={"image-fluid col-lg-12 "} src={require("../images/jaycloud1.jpg")} />
+            </div>
+
             <div className={"card-body"}>
                 <p className={"card-text"}>
 
@@ -344,7 +440,7 @@ const Blog = (props)=>{
         {/* end of card */}
 
          {/* begining of card */}
-         <div className={"pointit card border col-lg-6 m-1"}>
+         <div className={"pointit card border col-lg-4 m-1"}>
             <img className={"image-fluid col-lg-12"} src={require("../images/YJ2.jpg")} />
             <div className={"card-body"}>
                 <p className={"card-text"}>

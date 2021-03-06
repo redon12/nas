@@ -25,7 +25,7 @@ const SignUpPage=(props)=>{
       fname, pwd:Password,contestantfaculty,contestantphone,contestantpics,
         repwd:rePassword, contestantlevel, contestantdept,contestantDOB}))
       if (regInfo){
-      props.history.push("/signin")
+      props.history.push("/api/signin")
       alert("registration was successful")
       }
     }
@@ -155,7 +155,7 @@ const SignUpPage=(props)=>{
                     Type in Password
                   </small>
                 </fieldset>
-                {regInfo?props.history.push({path:"/signin", state:{msg:"Your Registration was Successful"}}):null}
+                {regInfo?props.history.push({path:"/api/signin", state:{msg:"Your Registration was Successful"}}):null}
                 <fieldset className={"form-group"}>
                   <input onChange={e=>setRePassword(e.target.value)} name ={"rePassword"} type={"password"} className={"form-control"} placeholder={"Re-Enter Password"} required/>
                   <small className={"text-muted"}>
@@ -164,7 +164,7 @@ const SignUpPage=(props)=>{
                 </fieldset>
 
                <center> <button type = {"submit"} className={"btn btn-info m-4"}>{loading?<div className={"posit loading-container"}><div className={"loading"}/></div>:<span>{"Submit"}</span>}</button></center>
-                <Link className={"d-block"} to={'/signin'}>Already have an Account Sign in</Link>
+                <Link className={"d-block"} to={'/api/signin'}>Already have an Account Sign in</Link>
 
                </form>
               </div>}

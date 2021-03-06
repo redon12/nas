@@ -13,7 +13,7 @@ function Ipage(props){
     const selected = true
     if (userInfo){
       console.log("i entered here")
-      props.history.push("/userpanel")}
+      props.history.push("/api/userpanel")}
     const submitHandler=(e)=>{
         e.preventDefault()
         dispatch(loggeddIn(email, password))
@@ -23,14 +23,14 @@ function Ipage(props){
 
     useEffect(()=>{
         if (userInfo){
-            // props.history.push('/userpanel')
+            // props.history.push('/api/userpanel')
             console.log(userInfo)
         }
         return ()=>{
 
         }
     }, [userInfo])
-    return(userInfo?<div>{props.history.push("/userpanel")}</div>: <div>
+    return(userInfo?<div>{props.history.push("/api/userpanel")}</div>: <div>
        
     
       <div className={"container"}>

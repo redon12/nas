@@ -13,7 +13,7 @@ function RecoveryCode(props){
     const selected = true
     if (userInfo){
       console.log("i entered here")
-      props.history.push("/userpanel")}
+      props.history.push("/api/userpanel")}
     const submitHandler=(e)=>{
         e.preventDefault()
         dispatch(loggeddIn(email, password))
@@ -23,7 +23,7 @@ function RecoveryCode(props){
 
     useEffect(()=>{
         if (userInfo){
-            // props.history.push('/userpanel')
+            // props.history.push('/api/userpanel')
             console.log(userInfo)
         }
         return ()=>{
@@ -46,7 +46,7 @@ function RecoveryCode(props){
                     </fieldset>
 
                     <fieldset className={"form-group"}>
-                        <button onClick={e=>props.history.push("/recoverypassword")} className={"btn btn-info"}>
+                        <button onClick={e=>props.history.push("/api/recoverypassword")} className={"btn btn-info"}>
                             Send Reset code
                         </button>
                     </fieldset>

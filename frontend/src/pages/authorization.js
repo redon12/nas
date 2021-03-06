@@ -32,6 +32,7 @@ function Authorization(props){
         console.log("this part executed")
         const votex = await Axios.post("/users/castvote", {id, uniq, vote, email:cEmail})
         alert(votex.data.msg)
+        window.location.reload()
     }
     console.log(datas)
     console.log(vote)

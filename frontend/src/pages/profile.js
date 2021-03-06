@@ -53,7 +53,7 @@ const Profile = (props)=>{
 
         alert(image.data.msg)
         Cookie.set("prof", {prof:true})
-        props.history.push({pathname:"/userpanel", state:"prof"})
+        props.history.push({pathname:"/api/userpanel", state:"prof"})
 
         
         console.log(image)
@@ -78,12 +78,12 @@ const Profile = (props)=>{
             <div className="side-bar bg-light shadow-lg">
                 <span className={"side-close-button text-success"} onClick={closeButton}>x</span>
             <div className={"border"}> <span className={"fas fa-user h1 m-3 text-success"}></span><span className={"text-sucess"}>{userInfo.data.name}</span></div>
-                        <Link className={"border border-left-0 border-top-0 border-right-0 m-1 text-dark p-2"} to="/appointment"> Home</Link>
+                        <Link className={"border border-left-0 border-top-0 border-right-0 m-1 text-dark p-2"} to="/api/appointment"> Home</Link>
                     
                     
-                        <Link className={"border border-top-0 border-left-0 border-right-0 m-1 text-dark p-2"} to="/appointment"> See Ongoing contest</Link>
+                        <Link className={"border border-top-0 border-left-0 border-right-0 m-1 text-dark p-2"} to="/api/appointment"> See Ongoing contest</Link>
                     
-                        <Link className={"border border-top-0 border-right-0 border-left-0 m-1 text-dark p-2"} to="/appointment"> See your contests</Link>
+                        <Link className={"border border-top-0 border-right-0 border-left-0 m-1 text-dark p-2"} to="/api/appointment"> See your contests</Link>
                    
             </div>
 

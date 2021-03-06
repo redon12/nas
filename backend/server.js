@@ -64,7 +64,7 @@ server.get("/api/*", (req,res)=>{
 // sdnmsbcdcccccccc
 
 if (process.env.NODE_ENV == "production"){
-    server.use(express.static(dirss))
+    server.use("/",express.static(dirss))
 
     
 }

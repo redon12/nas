@@ -24,7 +24,7 @@ const AdminPanel = (props)=>{
                     
                     
                         <Link className={"border border-top-0 border-left-0 border-right-0 m-1 text-dark p-2"} to="/"> See Ongoing contest</Link>
-                      {userInfo.data.isAdmin?  <Link className={"border border-top-0 border-left-0 border-right-0 m-1 text-dark p-2"} to="/admin"> AdminPanel</Link>:null}
+                      {userInfo.data.isAdmin?  <Link className={"border border-top-0 border-left-0 border-right-0 m-1 text-dark p-2"} to="/api/admin"> AdminPanel</Link>:null}
 
                     
                    
@@ -35,12 +35,12 @@ const AdminPanel = (props)=>{
             <div className="side-bar bg-info">
                 <span className={"side-close-button text-light"} onClick={closeButton}>X</span>
                        <div> <span className={"fas fa-user h1 m-3 text-light"}></span><span className={"text-light"}>Cassandra Robinson</span></div>
-                        <Link className={" m-1 text-white p-2"} to="/appointment"> Appointments</Link>
+                        <Link className={" m-1 text-white p-2"} to="/api/appointment"> Appointments</Link>
                     
                     
-                        <Link className={" m-1 text-white p-2"} to="/appointment"> Schedules</Link>
+                        <Link className={" m-1 text-white p-2"} to="/api/appointment"> Schedules</Link>
                     
-                        <Link className={"  m-1 text-white p-2"} to="/appointment"> Result Database</Link>
+                        <Link className={"  m-1 text-white p-2"} to="/api/appointment"> Result Database</Link>
                    
             </div>
 
@@ -51,7 +51,7 @@ const AdminPanel = (props)=>{
                         <span className={"display-4 m-3 text-success  border-bottom-1"}>Admin Panel</span>
                         
                     </div>
-                    <div onClick={e=>props.history.push("/contestcreation")} className={"card col-lg-3 m-1 pointit"}>
+                    <div onClick={e=>props.history.push("/api/contestcreation")} className={"card col-lg-3 m-1 pointit"}>
                         <div className={"card-body"}>
                             <p className={'text-center h4 text-success m-2'}>
                             <span className={"fas fa-hospital-alt m-1"}>  </span>Create Contest
@@ -59,7 +59,7 @@ const AdminPanel = (props)=>{
                         </div>
 
                     </div>
-                    <div onClick={e=>props.history.push('/seeallmessages')} className={"card col-lg-3 m-1 pointit"}>
+                    <div onClick={e=>props.history.push('/api/seeallmessages')} className={"card col-lg-3 m-1 pointit"}>
                         <div className={"card-body"}>
                             <p className={'text-center text-success h4'}>
                             <span className={"fas fa-microscope m-1"}></span> Message Log
@@ -67,7 +67,7 @@ const AdminPanel = (props)=>{
                         </div>
                     </div>
 
-                    <div onClick={e=>props.history.push('/seetotalcontestants')} className={"card col-lg-3 m-1 pointit"}>
+                    <div onClick={e=>props.history.push('/api/seetotalcontestants')} className={"card col-lg-3 m-1 pointit"}>
                         <div className={"card-body"}>
                             <p className={'text-center text-success h4'}>
                             <span className={"fas fa-microscope m-1"}></span> Contestant Log

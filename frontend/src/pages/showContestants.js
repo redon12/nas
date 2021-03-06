@@ -82,11 +82,11 @@ function ShowContestantsPage(props){
                                 <span className={"d-block mb-3"}><strong>Type:</strong> Face</span>
                                 <span className={"d-block mb-3 h4"}><strong className={"text-info"}>Deadline:</strong> {days} days: {hours} hours: {minutes} minutes: {seconds} seconds</span>
                                 <span className={"d-block mb-3"}><strong>Contest Registration is Ongoing </strong>
-                                <Link to={{pathname:"/regcontestant", state:{detail:props.location.state.detail}}}>Register For Contest Now!</Link></span>
+                                <Link to={{pathname:"/api/regcontestant", state:{detail:props.location.state.detail}}}>Register For Contest Now!</Link></span>
                                 
                                 <span className={"d-block mb-3"}><strong>Share Contestants</strong></span>
                                 <p>
-                                    <span className={"text-light bg-info h2 m-1 fab fa-facebook p-2 rounded"}></span>
+                                    <span className={"text-light bg-info h2 m-1 fab fa-facebook-f p-2 rounded"}></span>
                                     <span className={"fab bg-info h2 m-1 text-light fa-twitter p-2 rounded"}></span>
 
                                     <span className={"fab fa-whatsapp bg-success text-light h2 m-1 p-2 rounded"}></span>
@@ -127,22 +127,22 @@ function ShowContestantsPage(props){
                     <div className={"col-lg-12 "}>
                         <div className={"row justify-content-center"}>
                         {/* card starts here */}
-                        {datas.data||datas.data==[]?datas.data.map(conts=>{
+                        {datas.data||datas.data==[]?datas.data.contestants.map(conts=>{
                             
 
                         return(
-                           conts.verified? <div onClick={e=>{props.history.push({pathname:"/votepage", state:{detail:conts.contestantemail, uniq:conts.contestIn}})}} className={"card col-lg-3  mt-5 m-1 pointit"}>
+                           conts.verified? <div onClick={e=>{props.history.push({pathname:"/api/votepage/"+conts._id, state:{detail:conts.contestantemail, uniq:conts.contestIn}})}} className={"card col-lg-3  mt-5 m-1 pointit"}>
                             <div className={"d-block"}><img style={{width:300,height:300}} class={"col-lg-12 w-100 border rounded m-2 p-2"} src={conts.constestantpics}/></div>
                             <div className={"card-body"}>
                                 <p className={"card-text list-group"}>
                                     <span className={"d-block list-group-item"}><strong>{conts.lname +" "+conts.fname} </strong></span>
-                                    <span className={"d-block list-group-item"}>Candidates Number:<strong>001</strong></span>
+                                    <span className={"d-block list-group-item"}>Candidates Number:<strong>{conts.contno}</strong></span>
                                     <span className={"d-block list-group-item"}>Vote Result: <strong>11.54%</strong></span>
                                     <span className={"d-block list-group-item"}>No of Votes:<strong>{conts.vote}</strong></span>
                                     <span className={"d-block list-group-item"}>Total Votes:<strong>{totalVote}</strong></span>
 
                                     <center><button
-                                    onClick={e=>{props.history.push({pathname:"/votepage", state:{detail:conts.contestantemail}})}}
+                                    onClick={e=>{props.history.push({pathname:"/api/votepage/${conts._id}", state:{detail:conts.contestantemail}})}}
                                     className={"btn btn-info px-5 m-2"}>Vote</button></center>
                                 </p>
                             </div>

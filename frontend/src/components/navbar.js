@@ -39,7 +39,7 @@ function NavBar(props){
                    
                     
                     <li className={"nav-item"}>
-                        <Link to={"/userpanel"} className={"nav-link "+navbarTextColor}>About</Link>
+                        <Link to={"/api/userpanel"} className={"nav-link "+navbarTextColor}>About</Link>
                     </li>
                    
                     
@@ -54,15 +54,15 @@ function NavBar(props){
                
                 <ul className={"navbar-nav"}>
                 <li className={" nav-item"}>
-                   {userInfo && !isLoggedOut? <Link to ={"/logout"} className={"px-1 fas fa-user nav-link "+navbarTextColor}>
+                   {userInfo && !isLoggedOut? <Link to ={"/api/logout"} className={"px-1 fas fa-user nav-link "+navbarTextColor}>
                         Log Out
-                    </Link>:<Link to ={"/register"} className={"px-1 fas fa-user nav-link "+navbarTextColor}>
+                    </Link>:<Link to ={"/api/register"} className={"px-1 fas fa-user nav-link "+navbarTextColor}>
                         Register
                     </Link>}
                 </li>
                 <li className={"nav-item"}>
-                    {userInfo && !isLoggedOut? <Link to={"/userpanel"} className={"fab fa-firefox nav-link px-1"+navbarTextColor}>{userInfo.data.fname}</Link>:
-                    <Link to={"/signin"} className={"px-1 fas fa-sign-in-alt nav-link "+navbarTextColor}>
+                    {userInfo && !isLoggedOut? <Link to={"/api/userpanel"} className={"fab fa-firefox nav-link px-1"+navbarTextColor}>{userInfo.data.fname}</Link>:
+                    <Link to={"/api/signin"} className={"px-1 fas fa-sign-in-alt nav-link "+navbarTextColor}>
                     Sign-In
                 </Link> }
                     

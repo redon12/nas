@@ -53,24 +53,24 @@ const App = (props)=>{
        
     
     <Route path={"/"}  exact={true} component={blog}/>
-    <Route path={"/signin"} exact={true}  component={opage}/>
-    <Route path={"/register"}   component={signUpPage}/>
-    <Route path={"/userpanel"}   component={UserPanel}/>
-    <Route path={"/logout"}   component={LogOut}/>
-    <Route path={"/admin"}   component={AdminPanel}/>
-    <Route path={"/createnewpost"}   component={CreateNewPost}/>
+    <Route path={"/api/signin"} exact={true}  component={opage}/>
+    <Route path={"/api/register"}   component={signUpPage}/>
+    <Route path={"/api/userpanel"}   component={UserPanel}/>
+    <Route path={"/api/logout"}   component={LogOut}/>
+    <Route path={"/api/admin"}   component={AdminPanel}/>
+    <Route path={"/api/createnewpost"}   component={CreateNewPost}/>
     <Route path={"/api/showcontestants"}   component={ShowContestantsPage}/>
-    <Route path={"/votepage"}   component={VotePage}/>
-    <Route path={"/contestcreation"}   component={ContestReg}/>
-    <Route path={"/regcontestant"}   component={RegContestant}/>
-    <Route path={"/profile"}   component={Profile}/>
-    <Route path={"/forgottenpassword"}   component={ForgottenPassword}/>
-    <Route path={"/recoverycode"}   component={RecoveryCode}/>
-    <Route path={"/recoverypassword"}   component={RecoveryPasswordChange}/>
-    <Route path={"/seeallmessages"} component = {SeeAllMessages} />
-    <Route path={"/authorization"} component = {Authorization} />
-    <Route path={"/seetotalcontestants"} component = {SeeTotalContestants} />
-    <Route path={"/approvepage"} component = {ApprovePage} />
+    <Route path={"/api/votepage/:id"}   component={VotePage}/>
+    <Route path={"/api/contestcreation"}   component={ContestReg}/>
+    <Route path={"/api/regcontestant"}   component={RegContestant}/>
+    <Route path={"/api/profile"}   component={Profile}/>
+    <Route path={"/api/forgottenpassword"}   component={ForgottenPassword}/>
+    <Route path={"/api/recoverycode"}   component={RecoveryCode}/>
+    <Route path={"/api/recoverypassword"}   component={RecoveryPasswordChange}/>
+    <Route path={"/api/seeallmessages"} component = {SeeAllMessages} />
+    <Route path={"/api/authorization"} component = {Authorization} />
+    <Route path={"/api/seetotalcontestants"} component = {SeeTotalContestants} />
+    <Route path={"/api/approvepage/:id"} component = {ApprovePage} />
 
 
     

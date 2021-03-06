@@ -30,7 +30,7 @@ function SeeAllMessages(props){
 
     const gyrateTo = (id)=>{
         props.history.push({
-            pathname:"/authorization",
+            pathname:"/api/authorization",
             state:{id:id}
         })
     }

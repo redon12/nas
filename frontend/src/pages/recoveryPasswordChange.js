@@ -13,7 +13,7 @@ function RecoveryPasswordChange(props){
     const selected = true
     if (userInfo){
       console.log("i entered here")
-      props.history.push("/userpanel")}
+      props.history.push("/api/userpanel")}
     const submitHandler=(e)=>{
         e.preventDefault()
         dispatch(loggeddIn(email, password))
@@ -23,7 +23,7 @@ function RecoveryPasswordChange(props){
 
     useEffect(()=>{
         if (userInfo){
-            // props.history.push('/userpanel')
+            // props.history.push('/api/userpanel')
             console.log(userInfo)
         }
         return ()=>{
@@ -62,7 +62,7 @@ function RecoveryPasswordChange(props){
               </small>
             </fieldset>
 
-            <center> <button onClick={e=>props.history.push("/signin")} type = {"submit"} className={"btn btn-info m-4"}>Submit</button></center>
+            <center> <button onClick={e=>props.history.push("/api/signin")} type = {"submit"} className={"btn btn-info m-4"}>Submit</button></center>
             </form>
           </div>
 }

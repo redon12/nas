@@ -44,8 +44,8 @@ function ApprovePage(props){
             const ems = jsCookie.getJSON("userCont").emails
             setEmail(ems)
             
-            const data = await Axios.post("/users/fetchcontestantra",{email, uniq:props.location.state.uniq} )
-
+            const data = await Axios.post("/users/fetchcontestantra",{id:props.match.params.id} )
+ 
             console.log("this shows the email:")
             console.log(email)
             setDatas(data.data)
@@ -61,6 +61,7 @@ function ApprovePage(props){
             console.log("authorize just executed")
             const data = await Axios.post("/users/verifier", {id:datas._id})
             alert(data.data.msg)
+            props.history.push("/api/seetotalcontestants")
         }
         console.log(datas)
 

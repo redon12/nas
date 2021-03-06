@@ -1,5 +1,5 @@
 import express from 'express';
-import User, { newContest, newPost, regConty, payment, paymentDetails } from '../models'
+import User, { newContest, newPost, regConty, payment, paymentDetails, contestInfo } from '../models'
 import { getToken } from '../util';
 const router = express.Router()
 import multer from 'multer'
@@ -127,36 +127,60 @@ router.get("/fetchcontests" , async (req, res)=>{
 })
 
 router.post("/fetchcontestants", async (req, res)=>{
+    try{
     console.log(req.body)
     const contestants = await regConty.find({
         contestIn:req.body.uniq
     })
+
+    const conInfo = await contestInfo.findOne({
+        contestname:req.body.uniq
+    })
     console.log(contestants)
-    res.send(contestants)
+    console.log(conInfo)
+    res.send({contestants,totalV:conInfo.totalVote })}
+    catch(error){
+        res.send(error)
+    }
 })
 
 router.post("/fetchallcontestants", async (req, res)=>{
+    try{
     console.log(req.body)
     const AllContestants = await regConty.find()
     console.log(AllContestants)
-    res.send(AllContestants)
+    res.send(AllContestants)}
+    catch(error){
+        res.send(error)
+    }
 })
 
 router.post("/castvote", async (req, res)=>{
+    let totalVotes = 0
     try{
     console.log("just got in to cast a vote")
     console.log(req.body)
     const getNumVote = await regConty.findOne({contestantemail:req.body.email})
+
     const IndividualVote = await regConty.updateOne({
         contestantemail: req.body.email,
         contestIn:req.body.uniq
     },{vote:Number(req.body.vote) + Number(getNumVote.vote),})
+
     const authorizeIt = await paymentDetails.updateOne({
         _id:req.body.id
     },{authorized:true})
     console.log(req.body.id)
+
+    const calcAll = await regConty.find({contestIn:req.body.uniq})
+    calcAll.forEach((propy)=>{
+        total = total + Number(propy.vote)
+    })
+
+    const theTotalVote = await contestInfo.UpdateOne({contestname:req.body.uniq}, {totalVote:totalVotes})
     res.send({msg:"vote was successful"})
     }
+
     catch(error){
         console.log(error)
     }
@@ -183,8 +207,9 @@ router.post("/fetchcontestantra", async (req, res)=>{
     try{
     console.log(req.body)
     const Individual = await regConty.findOne({
-        contestantemail:req.body.email,
-        contestIn:req.body.uniq
+        _id:req.body.id,
+        
+
     })
     console.log(Individual)
     res.send(Individual)}
@@ -196,30 +221,51 @@ router.post("/fetchcontestantra", async (req, res)=>{
 
 
 router.get("/removecontests" , async (req, res)=>{
+    try{
     const allContest = await newContest.remove()
     console.log(allContest)
     res.send(allContest)
+    }
+    catch(error){
+        res.send(error)
+    }
 })
 
 router.get("/seecontests" , async (req, res)=>{
-    const allContest = await newContest.find()
+   try{
+        const allContest = await newContest.find()
     console.log(allContest)
-    res.send(allContest)
+    res.send(allContest)}
+    catch(error){
+        res.send(error)
+    }
 })
 
 
 
 router.get("/removecontys", async (req, res)=>{
+    try{
     const commot = await(regConty.remove())
     res.send(commot)
+    }
+    catch(error){
+        res.send(error)
+    }
 })
+
 router.get("/allcontys", async (req, res)=>{
-    res.send(await regConty.find())
-})
+    try{
+        res.send(await regConty.find())
+    }
+    catch(error){
+        res.send(error)
+    }
+    })
 
 router.post("/regcontestant", async (req, res)=>{
     console.log("contestant registration was executed")
     console.log(req.body)
+    const findLasts = await contestInfo.findOne({contestname:req.body.contestIn})
     const newCon = new regConty({
         fname:req.body.fname,
         lname:req.body.lname,
@@ -231,11 +277,14 @@ router.post("/regcontestant", async (req, res)=>{
         contestantphone:req.body.phone,
         contestantlevel:req.body.level,
         contestIn:req.body.contestIn,
-        payment:req.body.payment
+        payment:req.body.payment,
+        contno:findLasts.lastContNo + 1
         
     })
 
     const newConty = await newCon.save()
+    const newLast = await updateOne({_id:findLasts._id},{lastContNo: findLasts.lastContNo+1})
+    console.log(newLast)
     res.send(newConty)
 })
 // under edit
@@ -279,10 +328,15 @@ router.post("/imageuploads",upload.single("blogImage"), (req, res, next)=>{
     res.send("newpost",{imageLink:req.file.path})
 })
 // cloudinary router ends here--------------------------------------------------------------
+router.get("/removeall" , async (req, res)=>{
+    res.send({conty:await regConty.remove(), users:await User.remove(),
+        pay: await paymentDetails.remove(), contes:await newContest.remove()})
 
+})
 router.post("/registercontest",upload.single("file"), async (req, res)=>{
     console.log("vote ran inside contest route")
     console.log(req.file.path)
+    let contestUniqueName = req.body.cname + Date.now()
    try{ 
        const regNewContest = new newContest ({
         cname:req.body.cname,
@@ -290,12 +344,20 @@ router.post("/registercontest",upload.single("file"), async (req, res)=>{
         // cimage:uploadFile, // this is for offline image upload
         cdeadline:req.body.cdeadline,
         cvoteprice:req.body.cvoteprice,
-        cuniquename:req.body.cname + Date.now()
+        cuniquename:contestUniqueName
         
 
     })
+
     console.log("code ran inside routes")
     const newContests = await regNewContest.save()
+
+    const newInfo = new contestInfo({
+        contestname:contestUniqueName,
+        lastContNo:0,
+        totalVote:0
+    })
+    const newInfoSave = await newInfo.save()
     res.send({data:newContests})
 }
     catch(error){
